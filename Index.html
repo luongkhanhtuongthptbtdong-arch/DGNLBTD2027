@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>LUYỆN THI ĐÁNH GIÁ NĂNG LỰC – V-ACT &amp; V-SAT</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Noto+Serif:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#FDFDFB;--ink:#1C2B4A;--form:#C7333F;--form-soft:#FBEAEC;--line:#EBD5D8;--graphite:#4A515C;--mute:#7A808A;--ok:#2F7D59;--ok-soft:#E5F2EB;--bad:#B4232F;--card:#fff;
+--f:"Be Vietnam Pro","Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;--fs:"Noto Serif","Times New Roman",Georgia,serif}
+*{box-sizing:border-box}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html,body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f);font-size:16px;line-height:1.55}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid var(--form);outline-offset:2px}
+.hide{display:none!important}
+.wrap{max-width:1180px;margin:0 auto;padding:20px}
+h1,h2,h3{line-height:1.2;margin:0 0 .5em}
+a{color:var(--form)}
+.btn{border:1.5px solid var(--ink);background:var(--ink);color:#fff;padding:.6em 1.1em;border-radius:6px;font-weight:600}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.red{background:var(--form);border-color:var(--form)}
+.btn.sm{padding:.35em .7em;font-size:.88rem}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.in{width:100%;border:1.5px solid #CFC6C8;border-radius:6px;padding:.6em .75em;background:#fff}
+.in:focus{border-color:var(--ink);outline:none}
+label.l{display:block;font-size:.88rem;color:var(--graphite);margin:.8em 0 .3em;font-weight:500}
+.msg{font-size:.9rem;margin-top:.6em;min-height:1.3em}
+.msg.e{color:var(--bad)}.msg.o{color:var(--ok)}
+/* đăng nhập */
+.login{min-height:100vh;display:grid;grid-template-columns:1.1fr 1fr}
+.login .l1{padding:48px clamp(20px,6vw,80px);display:flex;flex-direction:column;justify-content:center}
+.login h1{font-size:clamp(2rem,4.6vw,3.3rem);letter-spacing:-.02em;font-weight:800}
+.login .lead{color:var(--graphite);max-width:34em}
+.login form{max-width:380px;margin-top:22px}
+.sheet{background:var(--form-soft);border-left:2px solid var(--line);display:flex;align-items:center;justify-content:center;padding:30px;overflow:hidden}
+.sheetgrid{display:grid;grid-template-columns:repeat(2,auto);gap:10px 44px;font-family:var(--fs)}
+.srow{display:flex;align-items:center;gap:10px;color:var(--form);font-size:.95rem}
+.srow b{width:26px;text-align:right;font-weight:600}
+.bub{width:24px;height:24px;border:1.5px solid var(--form);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:.7rem;color:var(--form)}
+.bub.f{background:var(--ink);border-color:var(--ink);color:transparent}
+.tabs2{display:flex;gap:6px;margin:14px 0 4px}
+.tabs2 button{border:none;background:none;padding:.3em 0;margin-right:14px;color:var(--mute);border-bottom:2px solid transparent;font-weight:600}
+.tabs2 button.on{color:var(--ink);border-color:var(--form)}
+/* thanh trên */
+.top{display:flex;align-items:center;gap:14px;padding:12px 20px;border-bottom:1.5px solid var(--line);background:#fff;position:sticky;top:env(safe-area-inset-top,0px);z-index:5;flex-wrap:wrap}
+.top .brand{font-weight:800;letter-spacing:-.01em}
+.top .sp{flex:1}
+.who{font-size:.9rem;color:var(--graphite)}
+/* bảng điều khiển */
+.seg{display:inline-flex;border:1.5px solid var(--ink);border-radius:8px;overflow:hidden;margin:6px 0 18px}
+.seg button{border:none;background:#fff;padding:.55em 1.2em;font-weight:600}
+.seg button.on{background:var(--ink);color:#fff}
+.einfo{color:var(--graphite);max-width:60em;margin:-4px 0 18px;font-size:.95rem}
+.grid30{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.de{border:1.5px solid var(--line);background:#fff;border-radius:10px;padding:14px;text-align:left;display:flex;flex-direction:column;gap:6px;position:relative}
+.de:hover{border-color:var(--form)}
+.de .n{font-family:var(--fs);font-size:1.9rem;font-weight:700;color:var(--form);line-height:1}
+.de .s{font-size:.85rem;color:var(--graphite)}
+.de .best{font-weight:700;color:var(--ink)}
+.de.done::after{content:"";position:absolute;right:12px;top:14px;width:12px;height:12px;border-radius:50%;background:var(--ink)}
+/* phòng thi */
+.exam{display:grid;grid-template-columns:1fr 300px;gap:20px;align-items:start}
+.qbox{background:#fff;border:1.5px solid var(--line);border-radius:10px;padding:22px}
+.qhead{display:flex;justify-content:space-between;gap:10px;align-items:baseline;border-bottom:1px dashed var(--line);padding-bottom:10px;margin-bottom:14px;flex-wrap:wrap}
+.qno{font-family:var(--fs);font-weight:700;font-size:1.25rem;color:var(--form)}
+.qsec{font-size:.85rem;color:var(--mute)}
+.stem{font-family:var(--fs);font-size:1.08rem;line-height:1.7;max-width:46em}
+.stem blockquote{margin:.6em 0;padding:.6em 1em;border-left:3px solid var(--form);background:var(--form-soft);font-size:1rem}
+.tw{overflow-x:auto;margin:.6em 0}
+table.dt{border-collapse:collapse;font-family:var(--f);font-size:.9rem}
+table.dt th,table.dt td{border:1px solid #D9C9CC;padding:.35em .7em;text-align:center;white-space:nowrap}
+table.dt th{background:var(--form-soft)}
+.opts{display:flex;flex-direction:column;gap:8px;margin-top:16px}
+.opt{display:flex;gap:12px;align-items:flex-start;border:1.5px solid #E4DCDD;border-radius:8px;padding:.6em .8em;background:#fff;text-align:left;font-family:var(--fs);font-size:1rem}
+.opt .bub{flex:none;margin-top:1px;font-family:var(--f);font-weight:700}
+.opt:hover{border-color:var(--form)}
+.opt.sel{border-color:var(--ink);background:#F3F5F9}
+.opt.sel .bub{background:var(--ink);border-color:var(--ink);color:#fff}
+.dsr{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;border-bottom:1px dashed var(--line);padding:.6em 0;font-family:var(--fs)}
+.tfb{display:flex;gap:6px}
+.tfb button{border:1.5px solid var(--form);background:#fff;color:var(--form);border-radius:20px;padding:.25em .9em;font-weight:600;font-size:.9rem}
+.tfb button.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.ghr{display:grid;grid-template-columns:1fr 150px;gap:10px;align-items:center;padding:.5em 0;border-bottom:1px dashed var(--line);font-family:var(--fs)}
+.ghopt{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:6px 16px;margin:10px 0;padding:10px;background:var(--form-soft);border-radius:8px;font-family:var(--fs)}
+.nav{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+.side{position:sticky;top:80px;background:#fff;border:1.5px solid var(--line);border-radius:10px;padding:14px;max-height:calc(100vh - 100px);overflow:auto}
+.timer{font-family:var(--fs);font-size:2rem;font-weight:700;text-align:center;color:var(--ink);letter-spacing:.03em}
+.timer.low{color:var(--bad)}
+.pal h4{margin:12px 0 6px;font-size:.82rem;color:var(--graphite);font-weight:600}
+.palg{display:grid;grid-template-columns:repeat(6,1fr);gap:5px}
+.pb{aspect-ratio:1;border:1.5px solid var(--form);border-radius:50%;background:#fff;color:var(--form);font-size:.72rem;font-weight:600;padding:0;position:relative}
+.pb.a{background:var(--ink);border-color:var(--ink);color:#fff}
+.pb.cur{box-shadow:0 0 0 3px #F2B8BE}
+.pb.fl::after{content:"";position:absolute;top:-2px;right:-2px;width:8px;height:8px;background:var(--form);border-radius:50%;border:1.5px solid #fff}
+.legend{font-size:.78rem;color:var(--mute);margin-top:10px;line-height:1.7}
+/* kết quả */
+.res{display:grid;grid-template-columns:320px 1fr;gap:24px;align-items:start}
+.score{background:#fff;border:1.5px solid var(--line);border-radius:10px;padding:22px}
+.big{font-family:var(--fs);font-size:3.6rem;font-weight:700;line-height:1;color:var(--form)}
+.big small{font-size:1.2rem;color:var(--graphite)}
+.bar{height:8px;background:#F1E6E8;border-radius:4px;overflow:hidden;margin:4px 0 12px}
+.bar i{display:block;height:100%;background:var(--ink)}
+.rv{background:#fff;border:1.5px solid var(--line);border-radius:10px;padding:16px 18px;margin-bottom:12px}
+.rv.ok{border-left:5px solid var(--ok)}.rv.no{border-left:5px solid var(--bad)}
+.rv .k{font-size:.9rem;margin-top:8px}
+.tag{display:inline-block;font-size:.78rem;padding:.1em .55em;border-radius:4px;background:var(--form-soft);color:var(--form);font-weight:600}
+.tag.ok{background:var(--ok-soft);color:var(--ok)}
+.expl{margin-top:8px;padding:8px 12px;background:#F6F7F9;border-radius:6px;font-size:.93rem}
+.filt{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}
+/* admin */
+.panel{background:#fff;border:1.5px solid var(--line);border-radius:10px;padding:18px;margin-bottom:18px}
+.tbl{overflow-x:auto}
+.tbl table{border-collapse:collapse;width:100%;font-size:.9rem}
+.tbl th,.tbl td{border-bottom:1px solid #EEE3E5;padding:.5em .6em;text-align:left;vertical-align:top}
+.tbl th{color:var(--graphite);font-weight:600;background:#FBF6F7}
+.row2{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.chk{display:flex;gap:16px;margin-top:6px;flex-wrap:wrap}
+.modal{position:fixed;inset:0;background:rgba(28,43,74,.45);display:flex;align-items:center;justify-content:center;z-index:50;padding:16px}
+.modal .box{background:#fff;border-radius:12px;padding:22px;max-width:560px;width:100%;max-height:90vh;overflow:auto}
+textarea.in{min-height:90px;font-family:ui-monospace,Consolas,monospace;font-size:.85rem}
+.toggle-pal{display:none}
+@media (max-width:900px){
+  .login{grid-template-columns:1fr}.sheet{display:none}
+  .exam{grid-template-columns:1fr}
+  .side{position:static;max-height:none;order:-1}
+  .toggle-pal{display:inline-block}
+  .side.closed .pal{display:none}
+  .res{grid-template-columns:1fr}
+  .ghr{grid-template-columns:1fr}
+}
+@media print{.top,.side,.nav{display:none}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style></head><body><main id="app"></main><script>
+"use strict";
+/* ================= LÕI: RNG + ĐỊNH DẠNG ================= */
+function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+class Rng{
+  constructor(s){this.r=mulberry32(s>>>0);}
+  f(){return this.r();}
+  i(a,b){return a+Math.floor(this.r()*(b-a+1));}
+  nz(a,b){let v;do{v=this.i(a,b);}while(v===0);return v;}
+  pick(a){return a[Math.floor(this.r()*a.length)];}
+  shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(this.r()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+  sample(a,k){return this.shuffle(a).slice(0,k);}
+  bool(){return this.r()<0.5;}
+}
+const gcd=(a,b)=>{a=Math.abs(a);b=Math.abs(b);while(b){[a,b]=[b,a%b];}return a||1;};
+const C=(n,k)=>{if(k<0||k>n)return 0;let r=1;for(let i=1;i<=k;i++)r=r*(n-k+i)/i;return Math.round(r);};
+/* số -> chuỗi kiểu Việt Nam (dấu phẩy thập phân, dấu trừ thật) */
+function nf(x,d){
+  if(d===undefined)d=4;
+  let v=Math.round(x*Math.pow(10,d))/Math.pow(10,d);
+  if(Object.is(v,-0))v=0;
+  let s=String(Math.abs(v));
+  if(s.indexOf("e")>=0)s=Math.abs(v).toFixed(d).replace(/0+$/,"").replace(/\.$/,"");
+  return (v<0?"−":"")+s.replace(".",",");
+}
+function fr(p,q){ if(q<0){p=-p;q=-q;} const g=gcd(p,q); p/=g;q/=g; return q===1?nf(p):(p<0?"−":"")+Math.abs(p)+"/"+q; }
+function frv(p,q){return p/q;}
+/* đa thức: [[hệ số,'x³'],...] */
+function poly(terms){
+  let s="";
+  for(const [c,v] of terms){
+    if(c===0)continue;
+    const a=Math.abs(c);
+    const coef=(a===1&&v)?"":nf(a);
+    if(s==="")s=(c<0?"−":"")+coef+v;
+    else s+=(c<0?" − ":" + ")+coef+v;
+  }
+  return s||"0";
+}
+const sgn=(c)=>c<0?" − "+nf(-c):" + "+nf(c);       /* " + 3" / " − 3" */
+const sgn0=(c)=>c===0?"":sgn(c);
+const pw=(b,e)=>b+"<sup>"+e+"</sup>";
+const sub=(b,e)=>b+"<sub>"+e+"</sub>";
+function sqrtFrac(num,den,r){ /* num√r/den */
+  const g=gcd(num,den); num/=g; den/=g;
+  const head=(num===1?"":nf(num))+"√"+r;
+  return den===1?head:head+"/"+den;
+}
+/* ============ DỰNG CÂU HỎI ============ */
+const FILLER=["Không xác định","Vô số","Không tồn tại"];
+function MC(R,stem,correct,wrongs,expl){
+  const c=String(correct);const seen=new Set([c]);const w=[];
+  for(const x of wrongs){const s=String(x);if(!seen.has(s)){seen.add(s);w.push(s);}if(w.length===3)break;}
+  for(const f of FILLER){if(w.length>=3)break;if(!seen.has(f)){seen.add(f);w.push(f);}}
+  const opts=R.shuffle([c,...w]);
+  return {type:"mc",stem,opts,ans:opts.indexOf(c),expl:expl||""};
+}
+/* trắc nghiệm số: tự bù phương án nhiễu nếu trùng */
+function MCn(R,stem,c,wrongs,expl,fmt){
+  fmt=fmt||(x=>nf(x));
+  const cs=fmt(c);const seen=new Set([cs]);const w=[];
+  for(const x of wrongs){if(x===undefined||!isFinite(x))continue;const s=fmt(x);if(!seen.has(s)){seen.add(s);w.push(s);}if(w.length===3)break;}
+  let k=1,guard=0;
+  const step=Math.abs(c)>=20?Math.max(1,Math.round(Math.abs(c)/10)):1;
+  while(w.length<3&&guard<60){guard++;const x=c+(k%2?1:-1)*Math.ceil(k/2)*step;k++;const s=fmt(x);if(!seen.has(s)){seen.add(s);w.push(s);}}
+  const opts=R.shuffle([cs,...w]);
+  return {type:"mc",stem,opts,ans:opts.indexOf(cs),expl:expl||""};
+}
+function SA(stem,ans,expl,tol){return {type:"sa",stem,ans,tol:tol===undefined?0.005:tol,expl:expl||""};}
+/* Đúng/Sai: items [{t,v}] */
+function DS(stem,items,expl){return {type:"ds",stem,items,expl:expl||""};}
+/* Ghép hợp: left[4], right[n], key[i]=chỉ số right đúng */
+function GH(R,stem,pairs,extras,expl){
+  const right=R.shuffle([...pairs.map(p=>p[1]),...extras]);
+  const uniq=[...new Set(right)];
+  return {type:"gh",stem,left:pairs.map(p=>p[0]),right:uniq,key:pairs.map(p=>uniq.indexOf(p[1])),expl:expl||""};
+}
+/* chọn mệnh đề đúng hoặc sai ngẫu nhiên */
+function tf(R,trueText,falseText){return R.bool()?{t:trueText,v:true}:{t:falseText,v:false};}
+function table(head,rows){
+  let h='<div class="tw"><table class="dt"><tr>'+head.map(x=>"<th>"+x+"</th>").join("")+"</tr>";
+  for(const r of rows)h+="<tr>"+r.map(x=>"<td>"+x+"</td>").join("")+"</tr>";
+  return h+"</table></div>";
+}
+/* ================= TOÁN HỌC (V-ACT, 30 câu) ================= */
+const MATH=[
+function(R){ /* đạo hàm tại điểm */
+  const a=R.nz(-3,3),b=R.nz(-4,4),c=R.i(-6,6),d=R.i(-9,9),x=R.nz(-2,2);
+  const v=3*a*x*x+2*b*x+c;
+  return MCn(R,`Cho hàm số f(x) = ${poly([[a,"x³"],[b,"x²"],[c,"x"],[d,""]])}. Giá trị của f′(${nf(x)}) bằng`,v,
+   [a*x*x*x+b*x*x+c*x+d,3*a*x*x+b*x+c,v+d,-v],
+   `f′(x) = ${poly([[3*a,"x²"],[2*b,"x"],[c,""]])} ⇒ f′(${nf(x)}) = ${nf(v)}.`);
+},
+function(R){ /* giá trị cực đại hàm bậc ba */
+  const k=R.i(1,3),q=R.i(-8,8),v=2*k*k*k+q;
+  return MCn(R,`Giá trị cực đại của hàm số y = ${poly([[1,"x³"],[-3*k*k,"x"],[q,""]])} bằng`,v,[q-2*k*k*k,-k,k,2*k*k*k-q],
+   `y′ = 3x² − ${3*k*k} = 0 ⇔ x = ±${k}. y′ đổi dấu từ + sang − tại x = −${k} nên y<sub>CĐ</sub> = y(−${k}) = ${nf(v)}.`);
+},
+function(R){ /* phương trình logarit */
+  const a=R.pick([2,3,5]),cmax=a===2?4:a===3?3:2,c=R.i(1,cmax),b=R.i(-5,5),x=Math.pow(a,c)-b;
+  const inside=b===0?"x":"x"+sgn(b);
+  return MCn(R,`Nghiệm của phương trình log${"<sub>"+a+"</sub>"}(${inside}) = ${c} là`,x,[Math.pow(a,c)+b,c*a-b,Math.pow(a,c),Math.pow(c,a)-b],
+   `Điều kiện ${inside} > 0. Phương trình ⇔ ${inside} = ${a}<sup>${c}</sup> = ${Math.pow(a,c)} ⇔ x = ${nf(x)} (thỏa mãn).`);
+},
+function(R){ /* phương trình mũ */
+  const a=R.pick([2,3,5]),cmax=a===2?5:a===3?4:3,c=R.i(0,cmax),x0=R.i(-2,3),p=c-2*x0;
+  const e=p===0?"2x":"2x"+sgn(p);
+  return MCn(R,`Nghiệm của phương trình ${a}<sup>${e}</sup> = ${Math.pow(a,c)} là`,x0,[x0+1,(c+p)/2,c,x0-1],
+   `${Math.pow(a,c)} = ${a}<sup>${c}</sup> nên ${e} = ${c} ⇔ x = ${nf(x0)}.`);
+},
+function(R){ /* tích phân */
+  const a=R.nz(1,4),b=R.i(-5,5),n=R.i(1,4),v=a*n*n+b*n;
+  return MCn(R,`Tích phân ∫<sub>0</sub><sup>${n}</sup> (${poly([[2*a,"x"],[b,""]])}) dx bằng`,v,[2*a*n*n+b*n,a*n+b,a*n*n+b,a*n*n],
+   `∫<sub>0</sub><sup>${n}</sup> (${poly([[2*a,"x"],[b,""]])}) dx = (${poly([[a,"x²"],[b,"x"]])})|<sub>0</sub><sup>${n}</sup> = ${nf(v)}.`);
+},
+function(R){ /* tổng cấp số cộng */
+  const u=R.i(-5,10),d=R.nz(-3,5),n=R.i(8,20),S=n*(2*u+(n-1)*d)/2;
+  return MCn(R,`Cho cấp số cộng (u<sub>n</sub>) có u<sub>1</sub> = ${nf(u)} và công sai d = ${nf(d)}. Tổng ${n} số hạng đầu tiên bằng`,S,[n*(u+(n-1)*d),Math.round(n*(2*u+n*d)/2),u+(n-1)*d,S+d],
+   `S<sub>${n}</sub> = ${n}[2u<sub>1</sub> + ${n-1}d]/2 = ${n}·(${nf(2*u)} + ${nf((n-1)*d)})/2 = ${nf(S)}.`);
+},
+function(R){ /* số hạng cấp số nhân */
+  const u=R.nz(-3,3),q=R.pick([2,3,-2]),n=R.i(4,7),v=u*Math.pow(q,n-1);
+  return MCn(R,`Cho cấp số nhân (u<sub>n</sub>) có u<sub>1</sub> = ${nf(u)}, công bội q = ${nf(q)}. Giá trị u<sub>${n}</sub> bằng`,v,[u*Math.pow(q,n),u*Math.pow(q,n-2),u*q*(n-1),-v],
+   `u<sub>${n}</sub> = u<sub>1</sub>·q<sup>${n-1}</sup> = ${nf(u)}·(${nf(q)})<sup>${n-1}</sup> = ${nf(v)}.`);
+},
+function(R){ /* tổ hợp chọn ban */
+  const m=R.i(5,9),w=R.i(4,8),a=R.i(1,3),b=R.i(1,3),v=C(m,a)*C(w,b);
+  return MCn(R,`Một lớp có ${m} học sinh nam và ${w} học sinh nữ. Số cách chọn ra ${a} nam và ${b} nữ để tham gia đội văn nghệ là`,v,[C(m,a)+C(w,b),C(m+w,a+b),2*v,C(m,b)*C(w,a)],
+   `Chọn ${a} nam: C(${m};${a}) = ${C(m,a)} cách; chọn ${b} nữ: C(${w};${b}) = ${C(w,b)} cách. Theo quy tắc nhân: ${v}.`);
+},
+function(R){ /* xác suất 2 bi đỏ */
+  const r=R.i(3,8),b=R.i(3,8),n=r+b;
+  const ok=fr(C(r,2),C(n,2));
+  return MC(R,`Một hộp có ${r} viên bi đỏ và ${b} viên bi xanh. Lấy ngẫu nhiên đồng thời 2 viên. Xác suất để lấy được 2 viên bi đỏ là`,ok,
+   [fr(r*r,n*n),fr(r,n),fr(C(r,2)+C(b,2),C(n,2)),fr(r*b,C(n,2))],
+   `n(Ω) = C(${n};2) = ${C(n,2)}; n(A) = C(${r};2) = ${C(r,2)} ⇒ P = ${ok}.`);
+},
+function(R){ /* khoảng cách điểm - mặt phẳng */
+  const N=R.pick([[1,2,2,3],[2,1,2,3],[2,3,6,7],[1,4,8,9],[2,6,9,11],[4,4,7,9]]);
+  const a=N[0]*(R.bool()?1:-1),b=N[1]*(R.bool()?1:-1),c=N[2]*(R.bool()?1:-1),L=N[3];
+  const x=R.i(-3,3),y=R.i(-3,3),z=R.i(-3,3),k=R.i(1,4),s=R.bool()?1:-1;
+  const d=s*k*L-(a*x+b*y+c*z);
+  return MCn(R,`Trong không gian Oxyz, khoảng cách từ điểm M(${nf(x)}; ${nf(y)}; ${nf(z)}) đến mặt phẳng (P): ${poly([[a,"x"],[b,"y"],[c,"z"],[d,""]])} = 0 bằng`,k,[k*L,k+1,k*L*L/(L+1),k>1?k-1:k+2],
+   `d = |${nf(a)}·${nf(x)} + ${nf(b)}·${nf(y)} + ${nf(c)}·${nf(z)} + ${nf(d)}| / √(${a*a}+${b*b}+${c*c}) = ${k*L}/${L} = ${k}.`);
+},
+function(R){ /* trung bình / trung vị */
+  const xs=[];for(let i=0;i<4;i++)xs.push(R.i(4,10));
+  let last=R.i(4,10);const s=xs.reduce((p,q)=>p+q,0);
+  while((s+last)%5!==0)last++;
+  xs.push(last);const mean=(s+last)/5;const so=xs.slice().sort((p,q)=>p-q);
+  if(R.bool()){
+    return MCn(R,`Điểm kiểm tra của 5 học sinh là: ${xs.map(v=>nf(v)).join("; ")}. Số trung bình của mẫu số liệu là`,mean,[so[2],mean+0.4,(so[0]+so[4])/2,mean-1],
+      `x̄ = (${xs.join(" + ")})/5 = ${s+last}/5 = ${nf(mean)}.`);
+  }
+  return MCn(R,`Điểm kiểm tra của 5 học sinh là: ${xs.map(v=>nf(v)).join("; ")}. Trung vị của mẫu số liệu là`,so[2],[mean,so[1],so[3],xs[2]],
+    `Sắp xếp tăng dần: ${so.join("; ")}. Trung vị là số đứng giữa: ${so[2]}.`);
+},
+function(R){ /* giảm giá liên tiếp */
+  const P=R.pick([200,400,500,800,1000]),a=R.pick([10,20,25]),b=R.pick([10,20,30]);
+  const v=P*(100-a)*(100-b)/10000;
+  return MCn(R,`Một chiếc áo niêm yết ${P} nghìn đồng. Cửa hàng giảm ${a}%, sau đó giảm tiếp ${b}% trên giá đã giảm. Giá bán cuối cùng (nghìn đồng) là`,v,[P*(100-a-b)/100,P*(100-a)/100,P*(100-b)/100,P*a*b/10000],
+   `Giá cuối = ${P}·(1 − ${a}%)·(1 − ${b}%) = ${P}·${nf((100-a)/100)}·${nf((100-b)/100)} = ${nf(v)} nghìn đồng.`,x=>nf(x,1));
+},
+function(R){ /* lãi kép */
+  const P=R.pick([100,200,50]),r=R.pick([5,6,7,8]),n=R.pick([2,3]);
+  const A=P*Math.pow(1+r/100,n);
+  return MCn(R,`Gửi ${P} triệu đồng vào ngân hàng với lãi suất ${r}%/năm theo hình thức lãi kép (lãi nhập gốc mỗi năm). Sau ${n} năm, số tiền cả gốc lẫn lãi (triệu đồng, làm tròn đến hàng phần trăm) là`,A,[P*(1+r*n/100),P*Math.pow(1+r/100,n+1),P*Math.pow(1+r/100,n-1),P*r*n/100],
+   `A = ${P}·(1 + ${r}%)<sup>${n}</sup> = ${P}·${nf(1+r/100)}<sup>${n}</sup> ≈ ${nf(A,2)} triệu đồng.`,x=>nf(x,2));
+},
+function(R){ /* số nghiệm nguyên bất phương trình bậc hai */
+  const a=R.i(-6,2),b=a+R.i(3,9),v=b-a-1;
+  return MCn(R,`Số nghiệm nguyên của bất phương trình ${poly([[1,"x²"],[-(a+b),"x"],[a*b,""]])} < 0 là`,v,[b-a+1,b-a,b-a-2],
+   `Tam thức có hai nghiệm ${nf(a)} và ${nf(b)}; bất phương trình ⇔ ${nf(a)} < x < ${nf(b)}. Các số nguyên: từ ${a+1} đến ${b-1}, gồm ${v} số.`);
+},
+function(R){ /* thể tích trụ */
+  const r=R.i(2,6),h=R.i(3,10),v=r*r*h;
+  const f=(p,q)=>{const s=fr(p,q);return s.indexOf("/")>0?s.replace("/","π/"):s+"π";};
+  return MC(R,`Thể tích khối trụ có bán kính đáy r = ${r} cm và chiều cao h = ${h} cm là`,f(v,1)+" cm³",
+   [f(v,3)+" cm³",f(2*r*h,1)+" cm³",f(r*h,1)+" cm³",f(2*v,1)+" cm³"],
+   `V = πr²h = π·${r*r}·${h} = ${v}π cm³.`);
+},
+function(R){ /* diện tích tam giác góc 60 */
+  const a=R.i(2,9),b=R.i(2,9);
+  const ok=sqrtFrac(a*b,4,3);
+  return MC(R,`Tam giác ABC có AB = ${a}, AC = ${b} và góc BAC = 60°. Diện tích tam giác ABC bằng`,ok,
+   [sqrtFrac(a*b,2,3),fr(a*b,2),sqrtFrac(a*b,1,3),fr(a*b,4)],
+   `S = ½·AB·AC·sin60° = ½·${a}·${b}·√3/2 = ${ok}.`);
+},
+function(R){ /* tích vô hướng */
+  const a=R.i(-5,5),b=R.i(-5,5),c=R.i(-5,5),d=R.i(-5,5),v=a*c+b*d;
+  return MCn(R,`Trong mặt phẳng Oxy, cho u⃗ = (${nf(a)}; ${nf(b)}) và v⃗ = (${nf(c)}; ${nf(d)}). Tích vô hướng u⃗·v⃗ bằng`,v,[a*d+b*c,a*c-b*d,a+b+c+d,-v],
+   `u⃗·v⃗ = ${nf(a)}·${nf(c)} + ${nf(b)}·${nf(d)} = ${nf(v)}.`);
+},
+function(R){ /* GTLN parabol */
+  const m=R.nz(-4,4),c=R.i(-6,6),v=m*m+c;
+  return MCn(R,`Giá trị lớn nhất của hàm số y = ${poly([[-1,"x²"],[2*m,"x"],[c,""]])} trên ℝ bằng`,v,[c,m,m*m-c,2*m*m+c],
+   `Đỉnh parabol tại x = ${nf(m)}; y<sub>max</sub> = y(${nf(m)}) = ${nf(v)}.`);
+},
+function(R){ /* giới hạn vô cực */
+  const a=R.nz(-6,6),c=R.nz(1,5),b=R.i(-5,5),d=R.nz(-7,7);
+  const ok=fr(a,c);
+  return MC(R,`Giới hạn lim<sub>x→+∞</sub> (${poly([[a,"x²"],[b,"x"],[1,""]])})/(${poly([[c,"x²"],[d,""]])}) bằng`,ok,[fr(c,a),"0","+∞",fr(-a,c),"−∞"],
+   `Chia tử và mẫu cho x²: giới hạn bằng tỉ số hệ số của x² là ${ok}.`);
+},
+function(R){ /* hệ số góc tiếp tuyến */
+  const b=R.i(-6,6),c=R.i(-6,6),x=R.nz(-3,3),k=2*x+b;
+  return MCn(R,`Hệ số góc của tiếp tuyến với đồ thị hàm số y = ${poly([[1,"x²"],[b,"x"],[c,""]])} tại điểm có hoành độ x = ${nf(x)} là`,k,[x*x+b*x+c,2*x,x+b,k+c],
+   `y′ = 2x${sgn0(b)}; k = y′(${nf(x)}) = ${nf(k)}.`);
+},
+function(R){ /* số nghiệm lượng giác */
+  const k=R.i(2,10);
+  if(R.bool())return MCn(R,`Số nghiệm của phương trình sin x = 0 trên đoạn [0; ${k}π] là`,k+1,[k,k+2,2*k+1],
+    `sin x = 0 ⇔ x = mπ; 0 ≤ mπ ≤ ${k}π ⇔ m = 0, 1, …, ${k}: có ${k+1} nghiệm.`);
+  return MCn(R,`Số nghiệm của phương trình cos x = 0 trên đoạn [0; ${k}π] là`,k,[k+1,2*k,k-1],
+    `cos x = 0 ⇔ x = π/2 + mπ; 0 ≤ π/2 + mπ ≤ ${k}π ⇔ m = 0, …, ${k-1}: có ${k} nghiệm.`);
+},
+function(R){ /* xác suất ít nhất một người bắn trúng */
+  const a=R.i(3,9),b=R.i(3,9);
+  const v=(100-(10-a)*(10-b))/100;
+  return MCn(R,`Hai xạ thủ độc lập cùng bắn vào một bia, xác suất bắn trúng lần lượt là ${nf(a/10)} và ${nf(b/10)}. Xác suất để có ít nhất một người bắn trúng là`,v,[a*b/100,(100-a*b)/100,(10-a)*(10-b)/100,(a*(10-b)+b*(10-a))/100],
+   `P = 1 − (1 − ${nf(a/10)})(1 − ${nf(b/10)}) = 1 − ${nf((10-a)*(10-b)/100)} = ${nf(v)}.`,x=>nf(x,2));
+},
+function(R){ /* giá trị biểu thức logarit */
+  const m=R.i(1,4),n=R.i(1,4);
+  if(R.bool())return MCn(R,`Giá trị của biểu thức log<sub>2</sub>(8<sup>${m}</sup>·4<sup>${n}</sup>) bằng`,3*m+2*n,[m+n,6*m*n,5*(m+n),2*m+3*n],
+    `8<sup>${m}</sup>·4<sup>${n}</sup> = 2<sup>${3*m}</sup>·2<sup>${2*n}</sup> = 2<sup>${3*m+2*n}</sup> ⇒ kết quả ${3*m+2*n}.`);
+  return MCn(R,`Giá trị của biểu thức log<sub>3</sub>(27<sup>${m}</sup>/9<sup>${n}</sup>) bằng`,3*m-2*n,[m-n,3*m+2*n,2*m-3*n,(3*m)/(2*n)],
+    `27<sup>${m}</sup>/9<sup>${n}</sup> = 3<sup>${3*m}</sup>/3<sup>${2*n}</sup> = 3<sup>${3*m-2*n}</sup> ⇒ kết quả ${nf(3*m-2*n)}.`);
+},
+function(R){ /* khoảng cách hai điểm Oxyz */
+  const D=R.pick([[1,2,2,3],[2,3,6,7],[1,4,8,9],[2,6,9,11],[4,4,7,9],[2,2,1,3]]);
+  const p=R.shuffle([D[0],D[1],D[2]]).map(v=>v*(R.bool()?1:-1));
+  const A=[R.i(-4,4),R.i(-4,4),R.i(-4,4)],B=[A[0]+p[0],A[1]+p[1],A[2]+p[2]];
+  return MCn(R,`Trong không gian Oxyz, cho A(${A.map(v=>nf(v)).join("; ")}) và B(${B.map(v=>nf(v)).join("; ")}). Độ dài đoạn AB bằng`,D[3],[D[3]*D[3],D[0]+D[1]+D[2],D[3]+2],
+   `AB⃗ = (${p.map(v=>nf(v)).join("; ")}) ⇒ AB = √(${p.map(v=>v*v).join("+")}) = ${D[3]}.`);
+}
+];
+/* ================= TƯ DUY KHOA HỌC: LOGIC (12 câu = logic + số liệu) ================= */
+const NAMES=["An","Bình","Chi","Dũng","Hà","Khoa","Lan","Minh","Nga","Phúc","Quân","Thảo"];
+const LOGIC=[
+function(R){ /* quy luật dãy số */
+  const t=R.i(0,4);let a=[],nx,ex;
+  if(t===0){const s=R.i(1,9),d=R.i(1,4),k=R.i(1,3);let v=s,dd=d;for(let i=0;i<6;i++){a.push(v);v+=dd;dd+=k;}nx=a.pop();ex=`Hiệu liên tiếp tăng đều ${k} đơn vị.`;}
+  else if(t===1){const s=R.i(1,4),q=R.pick([2,3]);let v=s;for(let i=0;i<6;i++){a.push(v);v*=q;}nx=a.pop();ex=`Mỗi số gấp ${q} lần số liền trước.`;}
+  else if(t===2){let x=R.i(1,4),y=R.i(2,6);a=[x,y];while(a.length<7)a.push(a[a.length-1]+a[a.length-2]);nx=a.pop();ex="Mỗi số bằng tổng hai số liền trước.";}
+  else if(t===3){const c=R.i(-3,5);for(let n=1;n<=6;n++)a.push(n*n+c);nx=a.pop();ex=`Số hạng thứ n bằng n²${sgn0(c)}.`;}
+  else{const p=R.i(1,5),dp=R.i(2,4),q=R.i(20,40),dq=-R.i(1,3);for(let i=0;i<7;i++)a.push(i%2===0?p+dp*(i/2):q+dq*((i-1)/2));nx=a.pop();ex=`Hai dãy xen kẽ: vị trí lẻ tăng ${dp}, vị trí chẵn giảm ${-dq}.`;}
+  return MCn(R,`Tìm số tiếp theo của dãy: ${a.join(", ")}, …`,nx,[nx+1,nx-2,nx+3],ex+` Số tiếp theo là ${nx}.`);
+},
+function(R){ /* tam đoạn luận */
+  const pool=["nhà khoa học","người ham đọc sách","người kiên nhẫn","vận động viên","người dậy sớm","họa sĩ","người yêu thiên nhiên","kỹ sư","người giỏi Toán","nhạc công"];
+  const [X,Y,Z]=R.sample(pool,3);const t=R.i(0,2);
+  if(t===0)return MC(R,`Cho các tiền đề: “Mọi ${X} đều là ${Y}.” và “Có một số ${Z} là ${X}.” Kết luận nào sau đây chắc chắn đúng?`,
+    `Có một số ${Z} là ${Y}.`,[`Mọi ${Z} đều là ${Y}.`,`Mọi ${Y} đều là ${X}.`,`Không có ${Z} nào là ${Y}.`],
+    `Những ${Z} là ${X} thì cũng là ${Y} (vì mọi ${X} là ${Y}), nên chắc chắn có ${Z} là ${Y}. Các phương án khác không suy ra được.`);
+  if(t===1)return MC(R,`Cho các tiền đề: “Mọi ${X} đều là ${Y}.” và “Không có ${Y} nào là ${Z}.” Kết luận nào sau đây chắc chắn đúng?`,
+    `Không có ${X} nào là ${Z}.`,[`Có một số ${X} là ${Z}.`,`Mọi ${Z} đều là ${X}.`,`Mọi ${Y} đều là ${X}.`],
+    `Tập ${X} nằm trong tập ${Y}, mà ${Y} không giao ${Z} nên ${X} cũng không giao ${Z}.`);
+  return MC(R,`Cho các tiền đề: “Mọi ${X} đều là ${Y}.” và “Mọi ${Y} đều là ${Z}.” Kết luận nào sau đây chắc chắn đúng?`,
+    `Mọi ${X} đều là ${Z}.`,[`Mọi ${Z} đều là ${X}.`,`Không có ${X} nào là ${Z}.`,`Mọi ${Z} đều là ${Y}.`],
+    `Quan hệ bao hàm có tính bắc cầu: ${X} ⊂ ${Y} ⊂ ${Z}.`);
+},
+function(R){ /* phản đảo */
+  const P=R.pick([
+    ["trời mưa","trời không mưa","sân trường ướt","sân trường không ướt"],
+    ["số tự nhiên n chia hết cho 6","n không chia hết cho 6","n chia hết cho 3","n không chia hết cho 3"],
+    ["tam giác ABC đều","tam giác ABC không đều","tam giác ABC cân","tam giác ABC không cân"],
+    ["Lan đạt giải nhất","Lan không đạt giải nhất","Lan được nhận học bổng","Lan không được nhận học bổng"],
+    ["tứ giác ABCD là hình vuông","ABCD không là hình vuông","ABCD là hình chữ nhật","ABCD không là hình chữ nhật"]]);
+  return MC(R,`Mệnh đề nào sau đây tương đương với mệnh đề “Nếu ${P[0]} thì ${P[2]}”?`,
+    `Nếu ${P[3]} thì ${P[1]}.`,[`Nếu ${P[2]} thì ${P[0]}.`,`Nếu ${P[1]} thì ${P[3]}.`,`Nếu ${P[0]} thì ${P[3]}.`],
+    `“Nếu P thì Q” tương đương với mệnh đề phản đảo “Nếu không Q thì không P”.`);
+},
+function(R){ /* sắp xếp chiều cao */
+  const o=R.sample(NAMES,5);const cl=[];
+  for(let i=0;i<4;i++)cl.push(R.bool()?`${o[i]} cao hơn ${o[i+1]}`:`${o[i+1]} thấp hơn ${o[i]}`);
+  const k=R.i(2,4);const ans=o[k-1];
+  return MC(R,`Năm bạn ${R.shuffle(o).join(", ")} có chiều cao khác nhau. Biết: ${R.shuffle(cl).join("; ")}. Bạn cao thứ ${k} trong nhóm là`,
+    ans,R.shuffle(o.filter(x=>x!==ans)),`Thứ tự từ cao đến thấp: ${o.join(" > ")}.`);
+},
+function(R){ /* xếp chỗ ngồi */
+  const o=R.sample(NAMES,5);const cl=[];
+  for(let i=0;i<4;i++)cl.push(R.bool()?`${o[i]} ngồi ngay bên trái ${o[i+1]}`:`${o[i+1]} ngồi ngay bên phải ${o[i]}`);
+  const t=R.i(0,2);const q=["ngồi ở ghế chính giữa","ngồi ngoài cùng bên phải","ngồi ngoài cùng bên trái"][t];const ans=o[[2,4,0][t]];
+  return MC(R,`Năm bạn ${R.shuffle(o).join(", ")} ngồi trên một hàng ghế (nhìn từ phía sau). Biết: ${R.shuffle(cl).join("; ")}. Bạn ${q} là`,
+    ans,R.shuffle(o.filter(x=>x!==ans)),`Thứ tự từ trái sang phải: ${o.join(" – ")}.`);
+},
+function(R){ /* ai nói thật */
+  const P=R.sample(NAMES,3);
+  for(let tries=0;tries<300;tries++){
+    const st=[];for(let s=0;s<3;s++){const ty=R.i(0,2);st.push({ty,tg:ty===2?s:R.i(0,2)});}
+    if(st.some((x,s)=>x.ty!==2&&x.tg===s))continue;
+    const mode=R.bool()?1:2; /* 1: chỉ một người nói thật; 2: chỉ một người nói dối */
+    const sol=[];
+    for(let c=0;c<3;c++){let tr=0;for(const x of st){const v=x.ty===0?c===x.tg:c!==x.tg;if(v)tr++;}if(mode===1?tr===1:tr===2)sol.push(c);}
+    if(sol.length!==1)continue;
+    const say=st.map((x,s)=>`${P[s]} nói: “${x.ty===0?P[x.tg]+" làm vỡ":x.ty===1?"Không phải "+P[x.tg]+" làm vỡ":"Không phải tôi làm vỡ"}”`).join("; ");
+    return MC(R,`Một trong ba bạn ${P.join(", ")} đã làm vỡ cửa kính. ${say}. Biết rằng ${mode===1?"chỉ có đúng một bạn nói thật":"chỉ có đúng một bạn nói dối"}. Bạn làm vỡ cửa kính là`,
+      P[sol[0]],[...P.filter((_,i)=>i!==sol[0]),"Không xác định được"],`Thử lần lượt từng bạn là người làm vỡ, chỉ trường hợp ${P[sol[0]]} cho đúng số người nói thật theo giả thiết.`);
+  }
+  return LOGIC[0](R);
+},
+function(R){ /* ngày trong tuần */
+  const D=["Chủ nhật","thứ Hai","thứ Ba","thứ Tư","thứ Năm","thứ Sáu","thứ Bảy"];
+  const s=R.i(0,6),N=R.i(20,400),a=(s+N)%7;
+  return MC(R,`Hôm nay là ${D[s]}. Sau đúng ${N} ngày nữa sẽ là`,D[a],R.shuffle(D.filter((_,i)=>i!==a)),
+    `${N} = 7·${Math.floor(N/7)} + ${N%7}. Đếm thêm ${N%7} ngày kể từ ${D[s]} được ${D[a]}.`);
+},
+function(R){ /* năng suất công việc */
+  const p=R.pick([[3,6,2],[4,12,3],[6,12,4],[10,15,6],[12,24,8],[20,30,12],[5,20,4],[9,18,6],[8,24,6],[28,21,12]]);
+  return MCn(R,`Đội A làm xong một công việc trong ${p[0]} ngày, đội B làm xong công việc đó trong ${p[1]} ngày. Nếu hai đội cùng làm thì xong công việc sau bao nhiêu ngày?`,p[2],[(p[0]+p[1])/2,p[0]+p[1],Math.abs(p[1]-p[0])],
+    `Một ngày hai đội làm được 1/${p[0]} + 1/${p[1]} = 1/${p[2]} công việc ⇒ cần ${p[2]} ngày.`);
+}
+];
+/* ---------- PHÂN TÍCH SỐ LIỆU ---------- */
+function series(R){
+  const nm=R.pick(["Sản lượng lúa (nghìn tấn)","Doanh thu (tỉ đồng)","Số khách du lịch (nghìn lượt)","Sản lượng điện (triệu kWh)","Số học sinh đăng ký (người)"]);
+  const y0=R.i(2018,2021);let v=R.i(150,600);const vs=[];
+  for(let i=0;i<5;i++){vs.push(v);v=Math.round(v*(1+R.i(-6,18)/100));}
+  return {nm,ys:[0,1,2,3,4].map(i=>y0+i),vs,tb:table(["Năm",...[0,1,2,3,4].map(i=>y0+i)],[[nm,...vs.map(x=>nf(x))]])};
+}
+const DATA=[
+function(R){ const s=series(R);const i=R.i(0,2),j=R.i(i+1,4);const g=(s.vs[j]-s.vs[i])/s.vs[i]*100;
+  return MCn(R,`Cho bảng số liệu:${s.tb}Tốc độ tăng trưởng năm ${s.ys[j]} so với năm ${s.ys[i]} là (làm tròn đến 0,1%)`,g,[(s.vs[j]-s.vs[i])/s.vs[j]*100,s.vs[j]/s.vs[i]*100,g+2.5,g-3.1],
+   `(${s.vs[j]} − ${s.vs[i]})/${s.vs[i]}·100% ≈ ${nf(g,1)}%.`,x=>nf(x,1)+"%");},
+function(R){ const s=series(R);const m=s.vs.reduce((a,b)=>a+b,0)/5;const so=s.vs.slice().sort((a,b)=>a-b);
+  return MCn(R,`Cho bảng số liệu:${s.tb}Giá trị trung bình của giai đoạn trên là (làm tròn đến hàng phần mười)`,m,[so[2],(s.vs[0]+s.vs[4])/2,m+6.4,m*1.1],
+   `Trung bình = (${s.vs.join(" + ")})/5 ≈ ${nf(m,1)}.`,x=>nf(x,1));},
+function(R){ for(let t=0;t<50;t++){const s=series(R);const d=[1,2,3,4].map(i=>s.vs[i]-s.vs[i-1]);const mx=Math.max(...d);if(d.filter(x=>x===mx).length>1)continue;const k=d.indexOf(mx)+1;
+  return MC(R,`Cho bảng số liệu:${s.tb}Năm có mức tăng (so với năm liền trước) lớn nhất là`,String(s.ys[k]),s.ys.filter(y=>y!==s.ys[k]).map(String),
+   `Mức thay đổi so với năm trước: ${d.map((x,i)=>s.ys[i+1]+": "+nf(x)).join("; ")}. Lớn nhất là năm ${s.ys[k]}.`);} return DATA[0](R);},
+function(R){ const reg=R.sample(["Đồng bằng sông Hồng","Bắc Trung Bộ","Đông Nam Bộ","Tây Nguyên","Đồng bằng sông Cửu Long","Duyên hải Nam Trung Bộ"],4);
+  const v=reg.map(()=>R.i(40,400));const T=v.reduce((a,b)=>a+b,0);const k=R.i(0,3);const p=v[k]/T*100;
+  return MCn(R,`Cho bảng số liệu về giá trị sản xuất của một ngành (nghìn tỉ đồng) năm ${R.i(2022,2025)}:${table(["Vùng",...reg],[["Giá trị",...v.map(x=>nf(x))]])}Tỉ trọng của vùng ${reg[k]} trong tổng 4 vùng là (làm tròn đến 0,1%)`,p,[v[k]/(T-v[k])*100,p+5,100-p,v[k]/4],
+   `Tổng = ${T}; tỉ trọng = ${v[k]}/${T}·100% ≈ ${nf(p,1)}%.`,x=>nf(x,1)+"%");},
+function(R){ const s=series(R);const i=R.i(0,1),j=R.i(3,4);const q=s.vs[j]/s.vs[i];
+  return MCn(R,`Cho bảng số liệu:${s.tb}Giá trị năm ${s.ys[j]} gấp bao nhiêu lần năm ${s.ys[i]} (làm tròn đến hàng phần trăm)?`,q,[s.vs[i]/s.vs[j],q+0.25,q-0.15,(s.vs[j]-s.vs[i])/s.vs[i]],
+   `${s.vs[j]}/${s.vs[i]} ≈ ${nf(q,2)} lần.`,x=>nf(x,2));}
+];
+/* ================= SUY LUẬN KHOA HỌC (18 câu: Lí – Hóa – Sinh) ================= */
+const SCI=[
+function(R){ const Rr=R.pick([2,4,5,8,10,12,15,20]);const I=[0.5,1,1.5,2];const I0=R.pick([2.5,3,4,5]);const U=Rr*I0;
+  return MCn(R,`Một nhóm học sinh đo cường độ dòng điện I qua một điện trở khi thay đổi hiệu điện thế U:${table(["U (V)",...I.map(i=>nf(Rr*i))],[["I (A)",...I.map(i=>nf(i))]])}Nếu đặt hiệu điện thế ${nf(U)} V vào điện trở này thì cường độ dòng điện là`,I0,[I0*2,I0/2,I0+1,U*Rr],
+   `I tỉ lệ thuận với U, R = U/I = ${Rr} Ω ⇒ I = ${nf(U)}/${Rr} = ${nf(I0)} A.`,x=>nf(x,2)+" A");},
+function(R){ const v0=R.i(0,5),a=R.i(1,4),T=R.i(4,8);const s=v0*T+a*T*T/2;
+  return MCn(R,`Một xe chuyển động thẳng nhanh dần đều, vận tốc được ghi lại theo thời gian:${table(["t (s)","0","1","2","3"],[["v (m/s)",...[0,1,2,3].map(t=>nf(v0+a*t))]])}Quãng đường xe đi được trong ${T} giây đầu là`,s,[v0*T+a*T*T,(v0+a*T)*T,v0+a*T,a*T*T/2],
+   `Từ bảng: v₀ = ${v0} m/s, a = ${a} m/s². s = v₀t + at²/2 = ${v0}·${T} + ${a}·${T*T}/2 = ${nf(s)} m.`,x=>nf(x,1)+" m");},
+function(R){ const k=R.pick([20,25,40,50,80,100]);const l0=R.i(5,15);const F=k*l0/100;
+  return MCn(R,`Treo các vật vào một lò xo, đo lực đàn hồi F và độ dãn Δl:${table(["Δl (cm)","2","4","6"],[["F (N)",...[2,4,6].map(l=>nf(k*l/100))]])}Khi lực đàn hồi bằng ${nf(F)} N thì độ dãn của lò xo là`,l0,[l0*2,F*k,l0/2,l0+2],
+   `F = kΔl với k = ${nf(k*0.02)}/0,02 = ${k} N/m ⇒ Δl = ${nf(F)}/${k} = ${nf(l0/100)} m = ${l0} cm.`,x=>nf(x,2)+" cm");},
+function(R){ const c=R.pick([["NaOH",40],["CaCO₃",100],["H₂O",18],["CO₂",44],["NaCl",58.5],["H₂SO₄",98],["KOH",56],["Fe₂O₃",160],["CuSO₄",160],["Al₂O₃",102]]);
+  const n=R.pick([0.1,0.2,0.25,0.5,1.5,2]);const m=Math.round(c[1]*n*1000)/1000;
+  return MCn(R,`Cân được ${nf(m)} gam ${c[0]} tinh khiết (cho khối lượng mol ${c[0]} là ${nf(c[1])} g/mol). Số mol ${c[0]} là`,n,[m*c[1],n*2,n/2,n*10],
+   `n = m/M = ${nf(m)}/${nf(c[1])} = ${nf(n)} mol.`,x=>nf(x,3)+" mol");},
+function(R){ const C1=R.pick([1,2,4]),V1=R.pick([50,100]),f=R.pick([2,4,5,10]);const V2=V1*f,C2=C1/f;
+  return MCn(R,`Pha loãng ${V1} mL dung dịch HCl ${nf(C1)} M bằng nước cất thành ${V2} mL dung dịch. Nồng độ mol của dung dịch sau pha loãng là`,C2,[C1*f,C1/(f+1),C1-C2,C2*2],
+   `Số mol chất tan không đổi: C₁V₁ = C₂V₂ ⇒ C₂ = ${nf(C1)}·${V1}/${V2} = ${nf(C2)} M.`,x=>nf(x,3)+" M");},
+function(R){ const g=R.pick([2,3]),T1=R.pick([20,25,30]),dT=R.pick([10,20,30]);const f=Math.pow(g,dT/10);
+  return MCn(R,`Thí nghiệm cho thấy: cứ tăng nhiệt độ thêm 10 °C thì tốc độ của một phản ứng tăng ${g} lần. Khi tăng nhiệt độ từ ${T1} °C lên ${T1+dT} °C, tốc độ phản ứng tăng`,f,[g*dT/10,Math.pow(g,dT/10+1),dT/10,g+dT/10],
+   `Hệ số tăng = ${g}<sup>${dT}/10</sup> = ${g}<sup>${dT/10}</sup> = ${f} lần.`,x=>nf(x)+" lần");},
+function(R){ if(R.bool()){const k=R.i(10,60);const N=4*k;
+  return MCn(R,`Ở đậu Hà Lan, alen A (hoa tím) trội hoàn toàn so với a (hoa trắng). Cho hai cây dị hợp Aa tự thụ phấn (Aa × Aa) thu được ${N} cây con. Theo lí thuyết, số cây hoa tím là`,3*k,[2*k,k,N/2+k/2],
+   `Aa × Aa → 1AA : 2Aa : 1aa; kiểu hình trội chiếm 3/4 ⇒ ${N}·3/4 = ${3*k} cây.`);}
+  const t=R.pick([["aabb","1/16","thân thấp, hoa trắng"],["A-B-","9/16","thân cao, hoa đỏ"],["A-bb","3/16","thân cao, hoa trắng"],["aaB-","3/16","thân thấp, hoa đỏ"]]);
+  return MC(R,`Ở một loài thực vật, A (thân cao) trội hoàn toàn so với a (thân thấp); B (hoa đỏ) trội hoàn toàn so với b (hoa trắng); hai gen phân li độc lập. Phép lai AaBb × AaBb cho tỉ lệ kiểu hình ${t[2]} ở đời con là`,t[1],["1/16","9/16","3/16","1/4","3/8"].filter(x=>x!==t[1]),
+   `Mỗi gen cho tỉ lệ 3 trội : 1 lặn. Kiểu hình ${t[0]} có tỉ lệ ${t[1]} (nhân xác suất hai gen độc lập).`);},
+function(R){ const N0=R.pick([100,200,500,1000]),t=R.pick([20,30]),k=R.i(3,6);const N=N0*Math.pow(2,k);
+  return MCn(R,`Trong điều kiện tối ưu, một chủng vi khuẩn cứ ${t} phút phân chia một lần. Ban đầu có ${N0} tế bào. Sau ${t*k} phút số tế bào là`,N,[N0*2*k,N0*Math.pow(2,k+1),N0*k,N/2],
+   `Số lần phân chia = ${t*k}/${t} = ${k}. N = ${N0}·2<sup>${k}</sup> = ${N}.`,x=>nf(x)+" tế bào");},
+function(R){ const T=[20,25,30,35,40,45,50,55,60];const p=R.i(2,6);const act=T.map((_,i)=>Math.max(5,100-Math.abs(i-p)*R.i(12,20)-(i===p?0:R.i(1,4))));
+  return MC(R,`Đo hoạt tính (đơn vị tương đối) của một enzyme ở các nhiệt độ khác nhau:${table(["t (°C)",...T],[["Hoạt tính",...act]])}Theo bảng, nhiệt độ tối ưu của enzyme khoảng`,T[p]+" °C",R.shuffle(T.filter((_,i)=>i!==p)).map(x=>x+" °C"),
+   `Hoạt tính cao nhất (${act[p]}) ở ${T[p]} °C; nhiệt độ cao hơn làm enzyme bị biến tính, hoạt tính giảm.`);},
+function(R){ const f=R.pick([50,100,200,250,500]),l=R.pick([0.2,0.5,1.2,1.5,2]);const v=f*l;
+  return MCn(R,`Một sóng cơ lan truyền trên dây với tần số ${f} Hz, khoảng cách giữa hai đỉnh sóng liên tiếp đo được là ${nf(l)} m. Tốc độ truyền sóng là`,v,[f/l,v*2,v/2,f+l],
+   `Bước sóng λ = ${nf(l)} m; v = λf = ${nf(l)}·${f} = ${nf(v)} m/s.`,x=>nf(x,2)+" m/s");},
+function(R){ const p1=R.i(1,4),V1=R.pick([6,8,12,24]),k=R.pick([2,3,4]);const V2=V1/k,p2=p1*k;
+  return MCn(R,`Nén đẳng nhiệt một lượng khí từ thể tích ${V1} L, áp suất ${p1} atm xuống còn ${nf(V2)} L. Áp suất của khí sau khi nén là`,p2,[p1/k,p1+k,p1*k*k,V1/V2],
+   `Định luật Boyle: p₁V₁ = p₂V₂ ⇒ p₂ = ${p1}·${V1}/${nf(V2)} = ${p2} atm.`,x=>nf(x,2)+" atm");},
+function(R){ const a=R.i(1,3),k=R.i(1,6-a);const v=a+k;
+  return MCn(R,`Dung dịch HCl có nồng độ 10<sup>−${a}</sup> M (pH = ${a}). Pha loãng dung dịch này 10<sup>${k}</sup> lần bằng nước cất thì pH của dung dịch thu được là`,v,[a,v+1,a>k?a-k:v+2,a*k+a],
+   `[H⁺] giảm 10<sup>${k}</sup> lần còn 10<sup>−${v}</sup> M ⇒ pH = ${v}.`);},
+function(R){ const m=R.pick([0.5,1,2,1.5]),dT=R.pick([10,20,25,40,50,60]);const Q=m*4.2*dT;
+  return MCn(R,`Đun nóng ${nf(m)} kg nước, nhiệt độ tăng thêm ${dT} °C. Biết nhiệt dung riêng của nước là 4200 J/(kg·K). Nhiệt lượng nước thu vào là`,Q,[Q*10,Q/2,m*4.2*(dT+20),4.2*dT],
+   `Q = mcΔt = ${nf(m)}·4200·${dT} = ${nf(Q*1000)} J = ${nf(Q)} kJ.`,x=>nf(x,2)+" kJ");},
+function(R){ const T=R.pick([5,8,10,30]),n=R.i(1,4),m0=R.pick([16,32,64,80]);const m=m0/Math.pow(2,n);
+  return MCn(R,`Một chất phóng xạ có chu kì bán rã ${T} năm. Ban đầu có ${m0} g chất này. Sau ${n*T} năm, khối lượng chất phóng xạ còn lại là`,m,[m0/(2*n),m0-m,m0/Math.pow(2,n+1),m*3],
+   `Sau ${n} chu kì bán rã: m = ${m0}/2<sup>${n}</sup> = ${nf(m)} g.`,x=>nf(x,3)+" g");}
+];
+/* ================= TIẾNG VIỆT (30 câu) ================= */
+const CT=[["chân thành","trân thành"],["sắp xếp","xắp xếp"],["xán lạn","sáng lạn"],["chẩn đoán","chuẩn đoán"],["dành dụm","giành dụm"],["trau dồi","trau giồi"],["sơ suất","sơ xuất"],["xuất sắc","suất sắc"],["lãng mạn","lãng mạng"],["bổ sung","bổ xung"],["sát sao","sát xao"],["chỉn chu","chỉnh chu"],["vô hình trung","vô hình chung"],["cọ xát","cọ sát"],["xử lí","sử lí"],["giản dị","dản dị"],["chia sẻ","chia sẽ"],["sản xuất","sản suất"],["khuyến khích","khuyếch khích"],["trách nhiệm","chách nhiệm"],["thái độ bàng quan","thái độ bàng quang"],["năng nổ","năng lổ"],["nỗ lực","nổ lực"],["mãnh liệt","mảnh liệt"],["sửa chữa","sữa chữa"],["giấu giếm","dấu diếm"],["lẽ phải","lẻ phải"],["tranh luận","chanh luận"],["sương mù","xương mù"],["xao xuyến","sao xuyến"]];
+const TN=[["Nước đổ đầu vịt","Khuyên bảo, dạy dỗ thế nào cũng không có tác dụng"],["Đẽo cày giữa đường","Không có chính kiến, ai nói gì cũng nghe theo"],["Ếch ngồi đáy giếng","Hiểu biết hạn hẹp nhưng lại tự cho là giỏi"],["Mò kim đáy bể","Việc tìm kiếm vô cùng khó khăn, gần như vô vọng"],["Nước đến chân mới nhảy","Đến lúc cấp bách mới lo xoay xở"],["Ăn cháo đá bát","Vô ơn, phản bội người đã giúp đỡ mình"],["Đầu voi đuôi chuột","Bắt đầu thì to tát, kết thúc thì nhỏ bé, kém cỏi"],["Rút dây động rừng","Tác động vào một chỗ có thể ảnh hưởng đến toàn cục"],["Một nắng hai sương","Làm lụng vất vả, cực nhọc"],["Ba chìm bảy nổi","Cuộc đời long đong, lận đận"],["Khẩu Phật tâm xà","Miệng nói lời từ bi nhưng lòng dạ độc ác"],["Cưỡi ngựa xem hoa","Làm việc qua loa, hời hợt, không đi sâu"],["Lá lành đùm lá rách","Người có điều kiện giúp đỡ người gặp khó khăn"],["Uống nước nhớ nguồn","Biết ơn những người tạo dựng thành quả cho mình hưởng"],["Có công mài sắt, có ngày nên kim","Kiên trì, nhẫn nại thì sẽ thành công"],["Vắt chanh bỏ vỏ","Lợi dụng xong thì phụ bạc, bỏ rơi"],["Treo đầu dê, bán thịt chó","Quảng cáo một đằng, thực chất một nẻo nhằm lừa dối"],["Mất bò mới lo làm chuồng","Để sự việc xấu xảy ra rồi mới lo khắc phục"],["Chó cắn áo rách","Đã khó khăn lại gặp thêm tai họa"]];
+const TT=[["Công cha như núi Thái Sơn, nghĩa mẹ như nước trong nguồn chảy ra.","So sánh"],["Mặt hồ phẳng lặng như một tấm gương khổng lồ.","So sánh"],["Hàng tre đứng thẳng, hiên ngang canh giữ cổng làng.","Nhân hóa"],["Ông mặt trời thức dậy, vươn vai chào ngày mới.","Nhân hóa"],["Thuyền về có nhớ bến chăng, bến thì một dạ khăng khăng đợi thuyền.","Ẩn dụ"],["Cả làng ra đồng gặt lúa từ lúc tinh mơ.","Hoán dụ"],["Cả sân vận động reo hò khi đội nhà ghi bàn.","Hoán dụ"],["Nhớ sao lớp học, nhớ sao thầy cô, nhớ sao những buổi chiều tan trường.","Điệp ngữ"],["Đêm tháng năm chưa nằm đã sáng, ngày tháng mười chưa cười đã tối.","Nói quá"],["Cậu bé gầy đến mức gió thổi là bay.","Nói quá"],["Ông cụ đã về với tổ tiên vào mùa đông năm ấy.","Nói giảm nói tránh"],["Bài làm của em còn chưa được tốt lắm.","Nói giảm nói tránh"]];
+const TTOPT=["So sánh","Nhân hóa","Ẩn dụ","Hoán dụ","Điệp ngữ","Nói quá","Nói giảm nói tránh"];
+const TG=[["Truyện Kiều","Nguyễn Du"],["Chí Phèo","Nam Cao"],["Vợ chồng A Phủ","Tô Hoài"],["Vợ nhặt","Kim Lân"],["Rừng xà nu","Nguyễn Trung Thành"],["Chiếc thuyền ngoài xa","Nguyễn Minh Châu"],["Hai đứa trẻ","Thạch Lam"],["Chữ người tử tù","Nguyễn Tuân"],["Tây Tiến","Quang Dũng"],["Việt Bắc","Tố Hữu"],["Sóng","Xuân Quỳnh"],["Vội vàng","Xuân Diệu"],["Tràng giang","Huy Cận"],["Đây thôn Vĩ Dạ","Hàn Mặc Tử"],["Số đỏ","Vũ Trọng Phụng"],["Tắt đèn","Ngô Tất Tố"],["Bình Ngô đại cáo","Nguyễn Trãi"],["Hịch tướng sĩ","Trần Quốc Tuấn"],["Tuyên ngôn Độc lập","Hồ Chí Minh"],["Ai đã đặt tên cho dòng sông?","Hoàng Phủ Ngọc Tường"],["Văn tế nghĩa sĩ Cần Giuộc","Nguyễn Đình Chiểu"],["Câu cá mùa thu (Thu điếu)","Nguyễn Khuyến"],["Những ngôi sao xa xôi","Lê Minh Khuê"],["Đồng chí","Chính Hữu"],["Bài thơ về tiểu đội xe không kính","Phạm Tiến Duật"],["Mùa xuân nho nhỏ","Thanh Hải"],["Ánh trăng","Nguyễn Duy"],["Hồn Trương Ba, da hàng thịt","Lưu Quang Vũ"]];
+const LAY=["long lanh","lấp lánh","xinh xắn","mênh mông","thăm thẳm","róc rách","lom khom","bâng khuâng","chênh vênh","khúc khuỷu","lững thững","xào xạc"];
+const GHEP=["nhà cửa","quần áo","sách vở","bàn ghế","xe đạp","hoa hồng","núi sông","đường phố","học sinh","máy bay","mưa gió","bánh mì"];
+const LOI=[["Qua bài thơ cho ta thấy tình yêu quê hương tha thiết của tác giả.","thiếu chủ ngữ"],["Những bông hoa mà em hái ở vườn sau nhà vào sáng hôm qua.","thiếu vị ngữ"],["Nhờ chủ quan nên đội bóng đã thua ngay trận mở màn.","dùng sai quan hệ từ"],["Tuy nhà ở rất gần trường nhưng bạn ấy chưa bao giờ đi học muộn.","sai quan hệ logic"],["Hắn tỏ ra bàng quang trước nỗi khổ của người khác.","dùng sai từ (bàng quan)"],["Trong chuyến tham quan bảo tàng đã giúp chúng em hiểu thêm về lịch sử dân tộc.","thiếu chủ ngữ"],["Ngôi trường mà em đã gắn bó suốt ba năm học trung học phổ thông.","thiếu vị ngữ"],["Bạn Nam học giỏi nhất lớp, cho nên bạn ấy thường xuyên bị điểm kém.","sai quan hệ logic"]];
+const DUNG=["Qua bài thơ, tác giả bày tỏ tình yêu quê hương tha thiết.","Những bông hoa em hái ở vườn sau nhà vẫn còn đẫm sương.","Vì chủ quan nên đội bóng đã thua ngay trận mở màn.","Tuy nhà ở rất xa trường nhưng bạn ấy chưa bao giờ đi học muộn.","Hắn tỏ ra bàng quan trước nỗi khổ của người khác.","Chuyến tham quan bảo tàng đã giúp chúng em hiểu thêm về lịch sử dân tộc.","Ngôi trường em đã gắn bó suốt ba năm luôn rợp bóng cây xanh.","Bạn Nam học giỏi nhất lớp nên thường được thầy cô khen ngợi."];
+const HV=[["hải","hải quân","biển"],["sơn","giang sơn","núi"],["thủy","thủy điện","nước"],["gia","gia đình","nhà"],["nhân","nhân loại","người"],["hỏa","hỏa hoạn","lửa"],["thảo","thảo nguyên","cỏ"],["vô","vô hình","không"],["thiên","thiên thư","trời"],["mẫu","mẫu tử","mẹ"],["nguyệt","nguyệt thực","mặt trăng"],["điền","điền chủ","ruộng"],["thạch","hóa thạch","đá"],["đại","đại dương","lớn"],["cường","cường quốc","mạnh"],["bạch","bạch mã","trắng"]];
+const DH=[
+ {p:"Thói quen đọc sách không hình thành sau một đêm. Nó bắt đầu từ những trang sách nhỏ mỗi ngày, từ việc tắt điện thoại mười lăm phút trước giờ ngủ. Người đọc đều đặn không nhất thiết đọc nhanh hơn người khác, nhưng họ tích lũy được vốn hiểu biết và khả năng tập trung bền bỉ – những thứ ngày càng hiếm trong thời đại thông tin dồn dập.",
+  q:[["Nội dung chính của đoạn văn là gì?","Thói quen đọc sách được hình thành dần dần và mang lại lợi ích lâu dài",["Người đọc sách luôn đọc nhanh hơn người khác","Điện thoại là nguyên nhân duy nhất khiến con người lười đọc","Chỉ nên đọc sách trước giờ đi ngủ"]],
+     ["Theo đoạn văn, điều gì “ngày càng hiếm” trong thời đại thông tin?","Khả năng tập trung bền bỉ",["Tốc độ đọc nhanh","Những trang sách nhỏ","Thiết bị điện tử"]]]},
+ {p:"Rừng ngập mặn ven biển được ví như “tấm khiên xanh”. Hệ rễ chằng chịt của cây đước, cây mắm giúp giảm sức tàn phá của sóng, giữ phù sa và chống sạt lở bờ biển. Không chỉ vậy, đây còn là nơi sinh sản của nhiều loài tôm, cá, cua – nguồn sinh kế của hàng triệu cư dân ven biển. Vì thế, mất rừng ngập mặn không chỉ là mất cây mà còn là mất một lá chắn sinh thái và kinh tế.",
+  q:[["Biện pháp tu từ trong cách gọi rừng ngập mặn là “tấm khiên xanh” là","Ẩn dụ",["Hoán dụ","Nói quá","Điệp ngữ"]],
+     ["Theo đoạn văn, ý nào KHÔNG phải là vai trò của rừng ngập mặn?","Cung cấp gỗ quý cho ngành xây dựng",["Giảm sức tàn phá của sóng","Giữ phù sa, chống sạt lở","Là nơi sinh sản của tôm, cá, cua"]]]},
+ {p:"Trí tuệ nhân tạo có thể viết hộ một bài văn trong vài giây. Nhưng nếu học sinh chỉ sao chép, các em sẽ mất đi cơ hội rèn luyện tư duy – thứ làm nên giá trị thật của việc học. Công nghệ nên được dùng như một người bạn gợi ý, một tấm gương để soi lại lập luận của mình, chứ không phải chiếc nạng để dựa vào mãi mãi.",
+  q:[["Thao tác lập luận chủ yếu của đoạn văn là","Bình luận",["Miêu tả","Tự sự","Thuyết minh quy trình"]],
+     ["Hình ảnh “chiếc nạng” trong đoạn văn chỉ điều gì?","Sự lệ thuộc hoàn toàn vào công nghệ",["Công cụ hỗ trợ người khuyết tật","Một phương pháp học hiệu quả","Sự sáng tạo của học sinh"]]]},
+ {p:"Mỗi mùa nước nổi, cánh đồng miền Tây lại khoác lên mình một màu bạc trắng. Người dân không xem lũ là kẻ thù. Họ “sống chung với lũ”: đánh bắt cá linh, hái bông điên điển, đợi nước rút để đón lớp phù sa màu mỡ cho vụ lúa mới. Lũ mang đến khó khăn, nhưng cũng mang đến sự sống.",
+  q:[["Thái độ của người dân đối với mùa lũ được thể hiện trong đoạn văn là","Chủ động thích nghi, khai thác lợi ích của lũ",["Sợ hãi và tìm cách rời bỏ quê hương","Thờ ơ, không quan tâm","Coi lũ là kẻ thù cần tiêu diệt"]],
+     ["Phương thức biểu đạt chính của đoạn văn là","Miêu tả kết hợp biểu cảm",["Nghị luận","Hành chính – công vụ","Thuyết minh khoa học"]]]}
+];
+const TV=[
+function(R){const p=R.sample(CT,4);return MC(R,"Từ nào sau đây viết <b>đúng</b> chính tả?",p[0][0],[p[1][1],p[2][1],p[3][1]],`“${p[0][0]}” viết đúng. Các từ còn lại đúng phải là: ${p[1][0]}, ${p[2][0]}, ${p[3][0]}.`);},
+function(R){const p=R.sample(CT,4);return MC(R,"Từ nào sau đây viết <b>sai</b> chính tả?",p[0][1],[p[1][0],p[2][0],p[3][0]],`“${p[0][1]}” sai, viết đúng là “${p[0][0]}”.`);},
+function(R){const p=R.sample(TN,4);return MC(R,`Thành ngữ, tục ngữ “${p[0][0]}” có nghĩa là`,p[0][1],[p[1][1],p[2][1],p[3][1]],`“${p[0][0]}”: ${p[0][1].toLowerCase()}.`);},
+function(R){const t=R.pick(TT);return MC(R,`Câu sau sử dụng chủ yếu biện pháp tu từ nào?<br><i>“${t[0]}”</i>`,t[1],R.shuffle(TTOPT.filter(x=>x!==t[1])),`Biện pháp chủ đạo: ${t[1]}.`);},
+function(R){const t=R.pick(TG);const au=[...new Set(TG.map(x=>x[1]))].filter(x=>x!==t[1]);return MC(R,`Tác phẩm “${t[0]}” là của tác giả nào?`,t[1],R.sample(au,3),`“${t[0]}” – ${t[1]}.`);},
+function(R){const t=R.pick(TG);const w=R.sample(TG.filter(x=>x[1]!==t[1]),3).map(x=>x[0]);return MC(R,`Tác phẩm nào sau đây do ${t[1]} sáng tác?`,t[0],w,`${t[1]} là tác giả của “${t[0]}”.`);},
+function(R){const l=R.pick(LAY);return MC(R,"Từ nào sau đây là <b>từ láy</b>?",l,R.sample(GHEP,3),`“${l}” có các tiếng láy âm/vần với nhau; các từ còn lại là từ ghép.`);},
+function(R){const ok=R.pick(DUNG);const w=R.sample(LOI,3).map(x=>x[0]);return MC(R,"Câu nào sau đây <b>không mắc lỗi</b> ngữ pháp, dùng từ hay logic?",ok,w,`Câu đúng: “${ok}”. Các câu còn lại mắc lỗi (thiếu thành phần câu, dùng sai từ hoặc sai quan hệ logic).`);},
+function(R){const e=R.pick(LOI);return MC(R,"Câu nào sau đây <b>mắc lỗi</b>?",e[0],R.sample(DUNG,3),`Câu “${e[0]}” ${e[1]}.`);},
+function(R){const h=R.pick(HV);const m=R.sample(HV.filter(x=>x[2]!==h[2]),3).map(x=>x[2]);return MC(R,`Yếu tố Hán Việt “${h[0]}” trong từ “${h[1]}” có nghĩa là`,h[2],m,`“${h[0]}” nghĩa là ${h[2]}.`);},
+function(R){const d=R.pick(DH);const q=R.pick(d.q);return MC(R,`Đọc đoạn trích:<blockquote>${d.p}</blockquote>${q[0]}`,q[1],q[2],"Căn cứ trực tiếp vào nội dung đoạn trích.");}
+];
+/* ================= TIẾNG ANH (30 câu) ================= */
+const EN_N=[["Linda","she"],["Tom","he"],["Mary","she"],["Peter","he"],["Anna","she"],["David","he"],["Nam","he"],["Mai","she"]];
+const pos=p=>p==="she"?"her":"his";
+const GR=[
+ R=>{const[n]=R.pick(EN_N);return[`${n} ___ in ${R.pick(["Hanoi","Da Nang","Hue","Can Tho","London"])} since ${R.i(2010,2022)}.`,"has lived",["lived","lives","is living"],"“since + mốc thời gian” → thì hiện tại hoàn thành."];},
+ R=>{const[n]=R.pick(EN_N);return[`When I arrived home, ${n} ___ dinner.`,"was cooking",["cooks","has cooked","is cooking"],"Hành động đang diễn ra thì hành động khác xen vào (quá khứ) → quá khứ tiếp diễn."];},
+ R=>["If I ___ you, I would accept the offer.","were",["am","had been","will be"],"Câu điều kiện loại 2 (giả định ở hiện tại): If + S + were…"],
+ R=>{const[n,p]=R.pick(EN_N);return[`If ${n} had left earlier, ${p} ___ the train.`,"would have caught",["would catch","will catch","caught"],"Câu điều kiện loại 3: If + had V3, S + would have V3."];},
+ R=>[`The ${R.pick(["bridge","road","roof","school gate"])} ___ by the workers last ${R.pick(["week","month","year"])}.`,"was repaired",["repaired","has repaired","is repairing"],"Bị động thì quá khứ đơn: was/were + V3."],
+ R=>{const[n]=R.pick(EN_N);return[`${n} is the student ___ won the first prize.`,"who",["which","whom","whose"],"Đại từ quan hệ chỉ người, làm chủ ngữ → who."];},
+ R=>["I look forward to ___ from you soon.","hearing",["hear","heard","be heard"],"look forward to + V-ing."],
+ R=>{const[n]=R.pick(EN_N);return[`${n} is used to ___ up early.`,"getting",["get","got","have got"],"be used to + V-ing: quen với việc gì."];},
+ R=>{const[n,p]=R.pick(EN_N);return[`Neither ${n} nor ${pos(p)} friends ___ at the party last night.`,"were",["was","is","has been"],"Neither…nor…: động từ chia theo chủ ngữ gần nhất (friends → số nhiều), thì quá khứ."];},
+ R=>{const[n]=R.pick(EN_N);return[`${n} suggested ___ to the museum on Sunday.`,"going",["to go","go","went"],"suggest + V-ing."];},
+ R=>R.pick([["This exercise is ___ than the previous one.","easier",["more easy","easiest","the easier"],"So sánh hơn của tính từ ngắn tận cùng -y: easy → easier."],["Her English is ___ than mine.","better",["gooder","more good","best"],"good → better (bất quy tắc)."],["This problem is ___ than we expected.","more difficult",["difficulter","most difficult","more difficultly"],"Tính từ dài: more + adj."]]),
+ R=>{const[n,p]=R.pick(EN_N);return[`${n} can play the piano, ___?`,`can't ${p}`,[`can ${p}`,`doesn't ${p}`,`isn't ${p}`],"Câu hỏi đuôi: mệnh đề khẳng định với can → can't + đại từ."];},
+ R=>{const[n,p]=R.pick(EN_N);return[`By the end of next year, ${n} ___ ${pos(p)} degree.`,"will have finished",["has finished","finished","is finishing"],"By the end of + thời điểm tương lai → tương lai hoàn thành."];},
+ R=>{const[n]=R.pick(EN_N);return[`${n} would rather stay at home than ___ out tonight.`,"go",["going","to go","went"],"would rather + V (nguyên mẫu) + than + V (nguyên mẫu)."];},
+ R=>["I have ___ money left, so I can't buy that book.","little",["few","a few","many"],"money không đếm được; “little” = rất ít, gần như không đủ."],
+ R=>{const[n,p]=R.pick(EN_N);return[`${n} enjoys ___ books in ${pos(p)} free time.`,"reading",["to read","read","reads"],"enjoy + V-ing."];}
+];
+const SYN=[["enormous","huge","The museum has an enormous collection of old coins."],["rapid","fast","The city has seen rapid growth in recent years."],["purchase","buy","You can purchase tickets online."],["assist","help","Volunteers will assist the elderly at the event."],["commence","begin","The meeting will commence at 9 a.m."],["reside","live","Many families reside in this area."],["obtain","get","You must obtain permission before entering."],["conceal","hide","He tried to conceal his disappointment."],["vital","essential","Water is vital for all living things."],["accurate","correct","Please give an accurate answer."],["diligent","hard-working","She is a diligent student."],["reluctant","unwilling","He was reluctant to accept the job."],["abundant","plentiful","Fish are abundant in this river."],["inquire","ask","I am writing to inquire about the course."]];
+const ANT=[["temporary","permanent","She found a temporary job for the summer."],["scarce","plentiful","Fresh water is scarce in this region."],["generous","stingy","He is generous with his money."],["expand","shrink","The company plans to expand its business."],["optimistic","pessimistic","She is optimistic about the future."],["polite","rude","The staff were very polite to customers."],["increase","decrease","Prices increase every year."],["modern","ancient","The city has many modern buildings."]];
+const WF=[["The ___ of the new bridge took two years. (CONSTRUCT)","construction",["construct","constructive","constructively"]],["She answered all the questions ___. (CORRECT)","correctly",["correct","correction","correctness"]],["Air ___ is a serious problem in big cities. (POLLUTE)","pollution",["pollute","polluted","polluting"]],["He is one of the most ___ scientists in the country. (SUCCESS)","successful",["success","succeed","successfully"]],["Regular exercise is ___ to your health. (BENEFIT)","beneficial",["benefit","beneficially","beneficiary"]],["The film was so ___ that I fell asleep. (BORE)","boring",["bored","bore","boredom"]],["Their ___ to the plan surprised everyone. (AGREE)","agreement",["agree","agreeable","agreeably"]],["We were impressed by her ___. (INTELLIGENT)","intelligence",["intelligent","intelligently","unintelligent"]]];
+const PREP=[["Linda is very interested ___ modern art.","in"],["Tom is good ___ solving maths problems.","at"],["Success depends ___ hard work.","on"],["Who is responsible ___ this project?","for"],["The little girl is afraid ___ the dark.","of"],["City life is very different ___ country life.","from"],["Her parents are proud ___ her achievements.","of"],["My brother is keen ___ playing football.","on"],["Hue is famous ___ its ancient citadel.","for"],["Your phone is similar ___ mine.","to"]];
+const PREPS=["in","on","at","of","for","from","to","with"];
+const TRANS=[["It's a pity I can't come to your party.","I wish I could come to your party.",["I wish I can come to your party.","If only I couldn't come to your party.","I'm glad I can't come to your party."]],["She started learning English five years ago.","She has learned English for five years.",["She learned English for five years.","She hasn't learned English for five years.","She will learn English in five years."]],["“I will call you tomorrow,” he said to me.","He told me that he would call me the next day.",["He told me that I would call him the next day.","He asked me to call him the next day.","He said me that he would call me the next day."]],["People say that he is very rich.","He is said to be very rich.",["He is said being very rich.","He was said to be very rich.","People are said that he is rich."]],["He didn't study hard, so he failed the exam.","If he had studied hard, he wouldn't have failed the exam.",["If he studied hard, he wouldn't fail the exam.","If he had studied hard, he would have failed the exam.","Unless he had studied hard, he wouldn't have failed the exam."]],["The book was so interesting that I read it twice.","It was such an interesting book that I read it twice.",["It was so an interesting book that I read it twice.","The book was too interesting to read twice.","The book was interesting enough not to read twice."]],["This is the first time I have visited Hue.","I have never visited Hue before.",["I visited Hue for the first time last year.","I have visited Hue many times.","I had visited Hue before."]],["It took me two hours to finish the report.","I spent two hours finishing the report.",["I spent two hours to finish the report.","I finished the report two hours ago.","The report took two hours for me to read."]]];
+const RD=[
+ {p:"Many teenagers today spend more than six hours a day looking at screens. Doctors warn that too much screen time can lead to poor sleep, eye strain and less physical activity. However, screens are not all bad. When used wisely, digital devices help students find information, learn new languages and stay in touch with friends. The key, experts say, is balance: setting time limits and taking regular breaks.",
+  q:[["What is the main idea of the passage?","Screen time has both benefits and risks, so balance is important.",["Teenagers should never use digital devices.","Doctors recommend six hours of screen time a day.","Learning languages online is better than at school."]],
+     ["According to the passage, which is NOT mentioned as a problem of too much screen time?","Higher school fees",["Poor sleep","Eye strain","Less physical activity"]]]},
+ {p:"The Mekong Delta is often called the “rice bowl” of Viet Nam. Its rich soil, brought by the river, allows farmers to grow two or three rice crops a year. In recent years, however, rising sea levels and saltwater intrusion have threatened farmland. Some farmers have switched to raising shrimp or growing salt-tolerant crops to adapt to the changing environment.",
+  q:[["Why is the Mekong Delta called the “rice bowl” of Viet Nam?","Because it produces a large amount of rice.",["Because people there make bowls from rice.","Because it has the biggest cities.","Because it is shaped like a bowl."]],
+     ["The word “adapt” in the passage is closest in meaning to","adjust",["refuse","destroy","ignore"]]]},
+ {p:"Volunteering is a great way for young people to develop skills. By helping at a local library, a hospital or an environmental group, students learn teamwork, communication and responsibility. Moreover, volunteers often say they feel happier because they make a real difference in their community. Many universities also value volunteer experience when choosing new students.",
+  q:[["According to the passage, volunteering helps students learn all of the following EXCEPT","advanced programming",["teamwork","communication","responsibility"]],
+     ["Why do many universities value volunteer experience?","It shows skills and community involvement of applicants.",["It replaces the need for good grades.","It is required by law.","It helps universities save money."]]]}
+];
+const TA=[
+function(R){const g=R.pick(GR)(R);return MC(R,`Choose the best option to complete the sentence:<br><i>${g[0]}</i>`,g[1],g[2],g[3]);},
+function(R){const g=R.pick(GR)(R);return MC(R,`Choose the best option to complete the sentence:<br><i>${g[0]}</i>`,g[1],g[2],g[3]);},
+function(R){const s=R.pick(SYN);const w=R.sample(SYN.filter(x=>x!==s),3).map(x=>x[1]);return MC(R,`Choose the word CLOSEST in meaning to the underlined word:<br><i>${s[2].replace(s[0],"<u>"+s[0]+"</u>")}</i>`,s[1],w,`${s[0]} ≈ ${s[1]}.`);},
+function(R){const s=R.pick(ANT);const w=R.sample(ANT.filter(x=>x!==s),3).map(x=>x[1]);return MC(R,`Choose the word OPPOSITE in meaning to the underlined word:<br><i>${s[2].replace(s[0],"<u>"+s[0]+"</u>")}</i>`,s[1],w,`${s[0]} ↔ ${s[1]}.`);},
+function(R){const s=R.pick(WF);return MC(R,`Choose the correct word form:<br><i>${s[0]}</i>`,s[1],s[2],`Vị trí cần dạng “${s[1]}”.`);},
+function(R){const s=R.pick(PREP);return MC(R,`Choose the correct preposition:<br><i>${s[0]}</i>`,s[1],R.sample(PREPS.filter(x=>x!==s[1]),3),`Cụm cố định với giới từ “${s[1]}”.`);},
+function(R){const s=R.pick(TRANS);return MC(R,`Choose the sentence CLOSEST in meaning to the given one:<br><i>${s[0]}</i>`,s[1],s[2],"Giữ nguyên nghĩa và đúng ngữ pháp.");},
+function(R){const d=R.pick(RD);const q=R.pick(d.q);return MC(R,`Read the passage and answer the question.<blockquote>${d.p}</blockquote>${q[0]}`,q[1],q[2],"Căn cứ vào thông tin trong đoạn văn.");}
+];
+/* ================= V-SAT TOÁN: 15 Đúng/Sai + 5 Ghép hợp + 5 Trả lời ngắn ================= */
+const pyth3=[[1,2,2,3],[2,3,6,7],[1,4,8,9],[2,6,9,11],[4,4,7,9],[2,2,1,3]];
+const tri=(x,y)=>x===y?{t:x,v:true}:null;
+function fix(R,tt,ft){if(tt===ft)return {t:tt,v:true};return tf(R,tt,ft);}
+const VDS=[
+function(R){const k=R.i(1,3),q=R.i(-8,8);const f=poly([[1,"x³"],[-3*k*k,"x"],[q,""]]);
+  return DS(`Cho hàm số y = f(x) = ${f}.`,[
+   fix(R,`f′(x) = 3x² − ${3*k*k}.`,`f′(x) = 3x² − ${3*k*k+3}.`),
+   tf(R,`Hàm số nghịch biến trên khoảng (−${k}; ${k}).`,`Hàm số đồng biến trên khoảng (−${k}; ${k}).`),
+   tf(R,`Hàm số đạt cực đại tại x = −${k}.`,`Hàm số đạt cực đại tại x = ${k}.`),
+   fix(R,`Giá trị cực tiểu của hàm số bằng ${nf(q-2*k*k*k)}.`,`Giá trị cực tiểu của hàm số bằng ${nf(q+2*k*k*k)}.`)],
+   `f′(x) = 3x² − ${3*k*k} = 0 ⇔ x = ±${k}; f′ < 0 trên (−${k}; ${k}). CĐ tại x = −${k}, y<sub>CĐ</sub> = ${nf(q+2*k*k*k)}; CT tại x = ${k}, y<sub>CT</sub> = ${nf(q-2*k*k*k)}.`);},
+function(R){const a=R.pick([2,3]),b=R.i(-3,3);const ins=b===0?"x":"x"+sgn(-b);
+  return DS(`Cho hàm số f(x) = log<sub>${a}</sub>(${ins}).`,[
+   tf(R,`Tập xác định của hàm số là D = (${nf(b)}; +∞).`,`Tập xác định của hàm số là D = [${nf(b)}; +∞).`),
+   fix(R,`f(${nf(b+a)}) = 1.`,`f(${nf(b+a)}) = ${a}.`),
+   tf(R,`Hàm số đồng biến trên tập xác định.`,`Hàm số nghịch biến trên tập xác định.`),
+   fix(R,`f(${nf(b+a*a*a)}) = 3.`,`f(${nf(b+a*a*a)}) = ${a*a*a}.`)],
+   `Điều kiện x > ${nf(b)}. Cơ số ${a} > 1 nên hàm đồng biến. f(${nf(b)} + ${a}<sup>k</sup>) = k.`);},
+function(R){const m=R.nz(-3,3),c=R.nz(-5,5);
+  return DS(`Cho hàm số f(x) = ${poly([[3,"x²"],[2*m,"x"]])} và F(x) là một nguyên hàm của f(x) thỏa mãn F(0) = ${nf(c)}.`,[
+   fix(R,`F(x) = ${poly([[1,"x³"],[m,"x²"],[c,""]])}.`,`F(x) = ${poly([[1,"x³"],[2*m,"x²"],[c,""]])}.`),
+   fix(R,`∫<sub>0</sub><sup>1</sup> f(x) dx = ${nf(1+m)}.`,`∫<sub>0</sub><sup>1</sup> f(x) dx = ${nf(2+m)}.`),
+   fix(R,`∫<sub>0</sub><sup>2</sup> f(x) dx = ${nf(8+4*m)}.`,`∫<sub>0</sub><sup>2</sup> f(x) dx = ${nf(8+2*m)}.`),
+   fix(R,`F(1) = ${nf(1+m+c)}.`,`F(1) = ${nf(1+m)}.`)],
+   `F(x) = x³ ${m<0?"−":"+"} ${nf(Math.abs(m))}x² + C, F(0) = ${nf(c)} ⇒ C = ${nf(c)}. ∫₀¹ f = F(1) − F(0) = ${nf(1+m)}; ∫₀² f = ${nf(8+4*m)}.`);},
+function(R){const D=R.pick(pyth3);const p=R.shuffle([D[0],D[1],D[2]]).map(v=>v*(R.bool()?1:-1));const A=[R.i(-4,4),R.i(-4,4),R.i(-4,4)];const B=A.map((v,i)=>v+p[i]);
+  const I=A.map((v,i)=>(v+B[i])/2);const k=p[0]*A[0]+p[1]*A[1]+p[2]*A[2];
+  const pl=(kk)=>`${poly([[p[0],"x"],[p[1],"y"],[p[2],"z"],[-kk,""]])} = 0`;
+  return DS(`Trong không gian Oxyz, cho hai điểm A(${A.map(v=>nf(v)).join("; ")}) và B(${B.map(v=>nf(v)).join("; ")}).`,[
+   tf(R,`AB⃗ = (${p.map(v=>nf(v)).join("; ")}).`,`AB⃗ = (${p.map(v=>nf(-v)).join("; ")}).`),
+   fix(R,`AB = ${D[3]}.`,`AB = ${D[3]*D[3]}.`),
+   fix(R,`Trung điểm của AB là I(${I.map(v=>nf(v)).join("; ")}).`,`Trung điểm của AB là I(${A.map((v,i)=>nf(v+B[i])).join("; ")}).`),
+   fix(R,`Mặt phẳng qua A và vuông góc với AB có phương trình ${pl(k)}.`,`Mặt phẳng qua A và vuông góc với AB có phương trình ${pl(k===0?-1:-k)}.`)],
+   `AB⃗ = B − A; AB = √(${p.map(v=>v*v).join("+")}) = ${D[3]}. Mặt phẳng nhận AB⃗ làm VTPT: ${pl(k)}.`);},
+function(R){const r=R.i(3,7),b=R.i(3,7),n=r+b,N=C(n,2);
+  return DS(`Một hộp có ${r} bi đỏ và ${b} bi xanh. Lấy ngẫu nhiên đồng thời 2 viên bi.`,[
+   fix(R,`Số phần tử của không gian mẫu là ${N}.`,`Số phần tử của không gian mẫu là ${n*(n-1)}.`),
+   fix(R,`Xác suất lấy được 2 bi đỏ là ${fr(C(r,2),N)}.`,`Xác suất lấy được 2 bi đỏ là ${fr(r*r,n*n)}.`),
+   fix(R,`Xác suất lấy được 2 bi cùng màu là ${fr(C(r,2)+C(b,2),N)}.`,`Xác suất lấy được 2 bi cùng màu là ${fr(r*b,N)}.`),
+   fix(R,`Xác suất lấy được ít nhất 1 bi đỏ là ${fr(N-C(b,2),N)}.`,`Xác suất lấy được ít nhất 1 bi đỏ là ${fr(C(r,2),N)}.`)],
+   `n(Ω) = C(${n};2) = ${N}. P(2 đỏ) = ${C(r,2)}/${N}; P(cùng màu) = (${C(r,2)}+${C(b,2)})/${N}; P(ít nhất 1 đỏ) = 1 − ${C(b,2)}/${N}.`);},
+function(R){const xs=[];for(let i=0;i<6;i++)xs.push(R.i(2,10));const so=xs.slice().sort((a,b)=>a-b);const m=xs.reduce((a,b)=>a+b,0)/6;const med=(so[2]+so[3])/2;const v=xs.reduce((a,x)=>a+(x-m)*(x-m),0)/6;
+  return DS(`Điểm kiểm tra của 6 học sinh: ${xs.join("; ")}.`,[
+   fix(R,`Khoảng biến thiên của mẫu số liệu là ${so[5]-so[0]}.`,`Khoảng biến thiên của mẫu số liệu là ${so[5]-so[0]+1}.`),
+   fix(R,`Số trung bình (làm tròn đến hàng phần trăm) là ${nf(m,2)}.`,`Số trung bình (làm tròn đến hàng phần trăm) là ${nf(m+0.5,2)}.`),
+   fix(R,`Trung vị của mẫu số liệu là ${nf(med)}.`,`Trung vị của mẫu số liệu là ${nf(med+1)}.`),
+   fix(R,`Phương sai (làm tròn đến hàng phần trăm) là ${nf(v,2)}.`,`Phương sai (làm tròn đến hàng phần trăm) là ${nf(v+1,2)}.`)],
+   `Sắp xếp: ${so.join("; ")}. x̄ = ${nf(m,4)}; Me = (${so[2]}+${so[3]})/2 = ${nf(med)}; s² = Σ(xᵢ − x̄)²/6 ≈ ${nf(v,2)}.`);},
+function(R){const u=R.i(-6,8),d=R.nz(-4,4);const inc=R.bool();
+  return DS(`Cho cấp số cộng (u<sub>n</sub>) có u<sub>1</sub> = ${nf(u)} và công sai d = ${nf(d)}.`,[
+   fix(R,`u<sub>n</sub> = ${poly([[d,"n"],[u-d,""]])}.`,`u<sub>n</sub> = ${poly([[d,"n"],[u,""]])}.`),
+   fix(R,`u<sub>10</sub> = ${nf(u+9*d)}.`,`u<sub>10</sub> = ${nf(u+10*d)}.`),
+   fix(R,`Tổng 10 số hạng đầu S<sub>10</sub> = ${nf(10*u+45*d)}.`,`Tổng 10 số hạng đầu S<sub>10</sub> = ${nf(10*u+50*d)}.`),
+   {t:`(u<sub>n</sub>) là dãy số ${inc?"tăng":"giảm"}.`,v:inc===(d>0)}],
+   `u<sub>n</sub> = u₁ + (n − 1)d; S<sub>10</sub> = 10u₁ + 45d = ${nf(10*u+45*d)}. Dãy ${d>0?"tăng":"giảm"} vì d ${d>0?">":"<"} 0.`);},
+function(R){const E=[["2cos x − 1 = 0","x = ±π/3 + k2π","x = ±π/6 + k2π","2π","π","π/3","2π/3"],["2sin x − 1 = 0","x = π/6 + k2π hoặc x = 5π/6 + k2π","x = ±π/6 + k2π","π","2π","π/6","π/3"],["2sin x − √3 = 0","x = π/3 + k2π hoặc x = 2π/3 + k2π","x = ±π/3 + k2π","π","2π","π/3","π/6"],["√2cos x − 1 = 0","x = ±π/4 + k2π","x = π/4 + kπ","2π","π","π/4","3π/4"],["2cos x + 1 = 0","x = ±2π/3 + k2π","x = ±π/3 + k2π","2π","4π/3","2π/3","π/3"]];const e=R.pick(E);
+  return DS(`Xét phương trình ${e[0]} (k ∈ ℤ).`,[
+   tf(R,`Nghiệm của phương trình là ${e[1]}.`,`Nghiệm của phương trình là ${e[2]}.`),
+   tf(R,`Trên khoảng (0; 2π), phương trình có đúng 2 nghiệm.`,`Trên khoảng (0; 2π), phương trình có đúng 3 nghiệm.`),
+   tf(R,`Tổng các nghiệm thuộc khoảng (0; 2π) bằng ${e[3]}.`,`Tổng các nghiệm thuộc khoảng (0; 2π) bằng ${e[4]}.`),
+   tf(R,`Nghiệm dương nhỏ nhất của phương trình là ${e[5]}.`,`Nghiệm dương nhỏ nhất của phương trình là ${e[6]}.`)],
+   `${e[0]} ⇔ ${e[1]}. Trên (0; 2π) có 2 nghiệm, tổng ${e[3]}, nghiệm dương nhỏ nhất ${e[5]}.`);},
+function(R){const h=R.i(5,20),c=R.i(10,h*h-10);
+  return DS(`Lợi nhuận (triệu đồng) khi sản xuất x tấn sản phẩm (0 ≤ x ≤ ${2*h}) là P(x) = ${poly([[-1,"x²"],[2*h,"x"],[-c,""]])}.`,[
+   tf(R,`P(x) đạt giá trị lớn nhất khi x = ${h}.`,`P(x) đạt giá trị lớn nhất khi x = ${2*h}.`),
+   tf(R,`Lợi nhuận lớn nhất bằng ${h*h-c} triệu đồng.`,`Lợi nhuận lớn nhất bằng ${h*h+c} triệu đồng.`),
+   tf(R,`P(x) đồng biến trên khoảng (0; ${h}).`,`P(x) nghịch biến trên khoảng (0; ${h}).`),
+   tf(R,`P(0) = −${c}.`,`P(0) = ${c}.`)],
+   `P′(x) = −2x + ${2*h} = 0 ⇔ x = ${h}; P(${h}) = ${h*h-c}. P′ > 0 trên (0; ${h}).`);},
+function(R){const a=R.i(2,5),T=R.i(2,6),v0=a*T;
+  return DS(`Một ô tô đang chạy với vận tốc ${v0} m/s thì hãm phanh, chuyển động chậm dần đều với vận tốc v(t) = ${v0} − ${a}t (m/s).`,[
+   tf(R,`Ô tô dừng hẳn sau ${T} giây kể từ lúc hãm phanh.`,`Ô tô dừng hẳn sau ${2*T} giây kể từ lúc hãm phanh.`),
+   fix(R,`Quãng đường ô tô đi được từ lúc hãm phanh đến khi dừng là ${nf(a*T*T/2)} m.`,`Quãng đường ô tô đi được từ lúc hãm phanh đến khi dừng là ${nf(a*T*T)} m.`),
+   fix(R,`v(1) = ${v0-a} m/s.`,`v(1) = ${v0+a} m/s.`),
+   fix(R,`Quãng đường đi được trong giây đầu tiên là ${nf(v0-a/2)} m.`,`Quãng đường đi được trong giây đầu tiên là ${nf(v0)} m.`)],
+   `v = 0 ⇔ t = ${T}. s = ∫₀<sup>${T}</sup>(${v0} − ${a}t)dt = ${nf(a*T*T/2)} m; s(giây đầu) = ∫₀¹ = ${nf(v0-a/2)} m.`);},
+function(R){const n=40,A=R.i(12,20),B=R.i(3,A-3),L=B+R.i(3,10);
+  return DS(`Lớp 12A có 40 học sinh, trong đó ${A} em giỏi Toán, ${L} em giỏi Văn và ${B} em giỏi cả hai môn. Chọn ngẫu nhiên 1 học sinh. Gọi T: “học sinh giỏi Toán”, V: “học sinh giỏi Văn”.`,[
+   fix(R,`P(T) = ${fr(A,n)}.`,`P(T) = ${fr(A+1,n)}.`),
+   fix(R,`P(T ∩ V) = ${fr(B,n)}.`,`P(T ∩ V) = ${fr(A*L,n*n)}.`),
+   fix(R,`P(V | T) = ${fr(B,A)}.`,`P(V | T) = ${fr(B,L)}.`),
+   fix(R,`P(T ∪ V) = ${fr(A+L-B,n)}.`,`P(T ∪ V) = ${fr(Math.min(40,A+L),n)}.`)],
+   `P(V|T) = n(T∩V)/n(T) = ${B}/${A}; P(T∪V) = (${A} + ${L} − ${B})/40.`);},
+function(R){const t=R.pick([[3,4,5],[6,8,10],[5,12,13],[8,6,10]]);const dx=t[0]*(R.bool()?1:-1),dy=t[1]*(R.bool()?1:-1);const A=[R.i(-5,5),R.i(-5,5)],B=[A[0]+dx,A[1]+dy];
+  return DS(`Trong mặt phẳng Oxy, cho A(${nf(A[0])}; ${nf(A[1])}) và B(${nf(B[0])}; ${nf(B[1])}).`,[
+   tf(R,`AB⃗ = (${nf(dx)}; ${nf(dy)}).`,`AB⃗ = (${nf(dy)}; ${nf(dx)}).`),
+   fix(R,`AB = ${t[2]}.`,`AB = ${t[2]*t[2]}.`),
+   fix(R,`Trung điểm của AB là M(${nf((A[0]+B[0])/2)}; ${nf((A[1]+B[1])/2)}).`,`Trung điểm của AB là M(${nf((A[0]+B[0])/2)}; ${nf((A[1]+B[1])/2+1)}).`),
+   fix(R,`Đường thẳng AB có hệ số góc ${fr(dy,dx)}.`,`Đường thẳng AB có hệ số góc ${fr(dx,dy)}.`)],
+   `AB⃗ = (${nf(dx)}; ${nf(dy)}), AB = ${t[2]}, hệ số góc k = ${nf(dy)}/${nf(dx)} = ${fr(dy,dx)}.`);}
+];
+/* ----- GHÉP HỢP: 4 ý trái, 5–6 ý phải ----- */
+const VGH=[
+function(R){const k=R.i(2,5),a=R.i(2,5);
+  const P=[[`y = ${a}x³`,`y′ = ${3*a}x²`],[`y = e<sup>${k}x</sup>`,`y′ = ${k}e<sup>${k}x</sup>`],[`y = sin ${k}x`,`y′ = ${k}cos ${k}x`],[`y = cos ${k}x`,`y′ = −${k}sin ${k}x`],[`y = ln x`,`y′ = 1/x`],[`y = √x`,`y′ = 1/(2√x)`]];
+  const pick=R.sample(P,4);return GH(R,"Ghép mỗi hàm số ở cột trái với đạo hàm tương ứng ở cột phải.",pick,[`y′ = ${k}sin ${k}x`,`y′ = ${a}x²`],"Áp dụng bảng đạo hàm cơ bản và đạo hàm hàm hợp.");},
+function(R){const a=R.pick([3,5]);
+  const P=[[`∫<sub>0</sub><sup>${a}</sup> 2x dx`,nf(a*a)],[`∫<sub>0</sub><sup>${a}</sup> 3x² dx`,nf(a*a*a)],[`∫<sub>0</sub><sup>${a}</sup> 4 dx`,nf(4*a)],[`∫<sub>1</sub><sup>e</sup> (1/x) dx`,"1"],[`∫<sub>0</sub><sup>π</sup> sin x dx`,"2"]];
+  const pick=R.sample(P,4);const ex=[nf(a*a+1),"0",nf(2*a)].filter(x=>!P.some(p=>p[1]===x));return GH(R,"Ghép mỗi tích phân ở cột trái với giá trị đúng ở cột phải.",pick,ex.slice(0,2),"Tính trực tiếp bằng nguyên hàm.");},
+function(R){const k=R.i(2,4);
+  const P=[[`log<sub>2</sub>x = ${k}`,`x = ${Math.pow(2,k)}`],[`3<sup>x</sup> = ${Math.pow(3,k)}`,`x = ${k}`],[`log<sub>3</sub>(x − 1) = 2`,"x = 10"],[`2<sup>x+1</sup> = 4`,"x = 1"],[`5<sup>2x</sup> = 1`,"x = 0"]];
+  const pick=R.sample(P,4);return GH(R,"Ghép mỗi phương trình ở cột trái với nghiệm của nó ở cột phải.",pick,[`x = ${k+1}`,"x = 9"].filter(x=>!P.some(p=>p[1]===x)),"Đưa về cùng cơ số hoặc dùng định nghĩa logarit.");},
+function(R){const pts=R.sample(pyth3,4).map(D=>{const p=R.shuffle([D[0],D[1],D[2]]).map(v=>v*(R.bool()?1:-1));return [`M(${p.map(v=>nf(v)).join("; ")})`,String(D[3])];});
+  const used=new Set(pts.map(p=>p[1]));const uniq=[];for(const p of pts){if(!uniq.some(q=>q[1]===p[1]))uniq.push(p);}
+  while(uniq.length<4){const v=R.i(2,6);const s=String(v);if(uniq.some(q=>q[1]===s))continue;uniq.push([`M(${nf(v)}; 0; 0)`,s]);used.add(s);}
+  return GH(R,"Trong không gian Oxyz, ghép mỗi điểm ở cột trái với khoảng cách từ điểm đó đến gốc tọa độ O ở cột phải.",uniq,["5","8","10"].filter(x=>!uniq.some(q=>q[1]===x)).slice(0,2),"OM = √(x² + y² + z²).");},
+function(R){const a=R.i(1,5),d=R.nz(2,4),q=R.pick([2,3]);
+  const P=[[`${a}; ${a+d}; ${a+2*d}; …`,`Cấp số cộng, d = ${d}`],[`${a}; ${a*q}; ${a*q*q}; …`,`Cấp số nhân, q = ${q}`],[`${a+2*d}; ${a+d}; ${a}; …`,`Cấp số cộng, d = −${d}`],[`${a*q*q}; ${a*q}; ${a}; …`,`Cấp số nhân, q = 1/${q}`]];
+  return GH(R,"Ghép mỗi dãy số ở cột trái với đặc điểm đúng ở cột phải.",P,[`Cấp số nhân, q = −${q}`,`Cấp số cộng, d = ${d+1}`],"Kiểm tra hiệu hoặc thương hai số hạng liên tiếp.");},
+function(R){const a=R.i(1,3),b=R.i(1,3);
+  const P=[[`y = ${poly([[1,"x³"],[-3*a*a,"x"]])}`,"2 điểm cực trị"],[`y = ${poly([[1,"x³"],[b,"x"]])}`,"0 điểm cực trị"],[`y = ${poly([[1,"x⁴"],[-2*a*a,"x²"]])}`,"3 điểm cực trị"],[`y = ${poly([[1,"x⁴"],[b,"x²"]])}`,"1 điểm cực trị"]];
+  return GH(R,"Ghép mỗi hàm số ở cột trái với số điểm cực trị của nó ở cột phải.",P,["4 điểm cực trị"],"Xét số nghiệm đổi dấu của y′.");}
+];
+/* ----- TRẢ LỜI NGẮN ----- */
+const VSA=[
+function(R){const a=4*R.i(2,5),b=R.i(3,6),c=R.i(3,6);const v=a*b*c*3/4;return SA(`Một bể cá dạng hình hộp chữ nhật có kích thước ${a} dm × ${b} dm × ${c} dm. Người ta đổ nước vào bể đến 3/4 chiều cao. Thể tích nước trong bể là bao nhiêu lít?`,v,`V = ${a}·${b}·${c}·3/4 = ${v} dm³ = ${v} lít.`,0);},
+function(R){const a=R.i(3,9),b=R.i(3,9);const v=(100-(10-a)*(10-b))/100;return SA(`Hai xạ thủ độc lập bắn vào bia với xác suất trúng lần lượt ${nf(a/10)} và ${nf(b/10)}. Tính xác suất để có ít nhất một người bắn trúng (viết dạng số thập phân).`,v,`P = 1 − ${nf((10-a)/10)}·${nf((10-b)/10)} = ${nf(v)}.`,0.001);},
+function(R){const a=R.nz(1,4),b=R.i(-5,5),n=R.i(1,4);const v=a*n*n+b*n;return SA(`Tính ∫<sub>0</sub><sup>${n}</sup> (${poly([[2*a,"x"],[b,""]])}) dx.`,v,`= ${nf(a)}·${n*n} ${b<0?"−":"+"} ${Math.abs(b)}·${n} = ${nf(v)}.`,0);},
+function(R){const m=R.i(5,9),w=R.i(4,8),a=R.i(1,3),b=R.i(1,2);const v=C(m,a)*C(w,b);return SA(`Một tổ có ${m} nam và ${w} nữ. Có bao nhiêu cách chọn ${a} nam và ${b} nữ đi trực nhật?`,v,`C(${m};${a})·C(${w};${b}) = ${C(m,a)}·${C(w,b)} = ${v}.`,0);},
+function(R){const L=4*R.i(5,20);const v=L*L/8;return SA(`Một người dùng ${L} m lưới rào một mảnh vườn hình chữ nhật, một cạnh tựa vào bức tường có sẵn (không phải rào). Diện tích lớn nhất của mảnh vườn là bao nhiêu m²?`,v,`Gọi x là cạnh vuông góc với tường: S = x(${L} − 2x), lớn nhất khi x = ${L/4} ⇒ S = ${nf(v)} m².`,0.01);},
+function(R){const N=R.pick([[1,2,2,3],[2,3,6,7],[1,4,8,9]]);const x=R.i(-3,3),y=R.i(-3,3),z=R.i(-3,3),k=R.i(1,5);const d=k*N[3]-(N[0]*x+N[1]*y+N[2]*z);
+  return SA(`Trong không gian Oxyz, tính khoảng cách từ M(${nf(x)}; ${nf(y)}; ${nf(z)}) đến mặt phẳng ${poly([[N[0],"x"],[N[1],"y"],[N[2],"z"],[d,""]])} = 0.`,k,`d = |${N[0]*x+N[1]*y+N[2]*z+d}|/${N[3]} = ${k}.`,0);},
+function(R){const r=R.pick([5,6,7,8,10]);let n=0,A=1;while(A<2){A*=1+r/100;n++;}return SA(`Gửi tiết kiệm với lãi suất ${r}%/năm theo hình thức lãi kép. Sau ít nhất bao nhiêu năm thì số tiền (gốc và lãi) gấp đôi số tiền ban đầu?`,n,`Cần (1 + ${r}%)<sup>n</sup> ≥ 2 ⇔ n ≥ ln2/ln${nf(1+r/100)} ≈ ${nf(Math.log(2)/Math.log(1+r/100),2)} ⇒ n = ${n}.`,0);},
+function(R){const u=R.i(-5,10),d=R.nz(-3,5),n=R.i(8,20);const S=n*(2*u+(n-1)*d)/2;return SA(`Cho cấp số cộng có u<sub>1</sub> = ${nf(u)}, d = ${nf(d)}. Tính tổng ${n} số hạng đầu.`,S,`S<sub>${n}</sub> = ${n}(2·${nf(u)} + ${n-1}·${nf(d)})/2 = ${nf(S)}.`,0);}
+];
+/* ================= DỰNG ĐỀ + CHẤM ================= */
+const EXAMS={
+  vact:{name:"V-ACT 2026",full:"Đánh giá năng lực ĐHQG-HCM (V-ACT)",time:150,max:1200,
+    info:"120 câu trắc nghiệm 4 lựa chọn · 150 phút. Sử dụng ngôn ngữ 60 câu (Tiếng Việt 30, Tiếng Anh 30), Toán học 30 câu, Tư duy khoa học 30 câu (logic & phân tích số liệu 12, suy luận khoa học 18). Thang 1200, mỗi phần 300 điểm."},
+  vsat:{name:"V-SAT Toán 2026",full:"Đánh giá đầu vào đại học trên máy tính (V-SAT) – môn Toán",time:90,max:150,
+    info:"25 câu, 85 tiểu mục · 90 phút. 15 câu Đúng/Sai (60 tiểu mục × 1,5 điểm), 5 câu Ghép hợp (20 tiểu mục × 1,5 điểm), 5 câu Trả lời ngắn (6 điểm/câu). Thang 150 điểm."}
+};
+function planIdx(S,n,len){const o=[];while(o.length<len)o.push(...S.shuffle([...Array(n).keys()]));return o.slice(0,len);}
+function fillSec(S,R,gens,len,sec,part){
+  const idx=planIdx(S,gens.length,len);const out=[];const seen=new Set();
+  for(const i of idx){let q,t=0;do{q=gens[i](R);t++;}while(seen.has(q.stem)&&t<15);seen.add(q.stem);q.sec=sec;if(part)q.part=part;out.push(q);}
+  return out;
+}
+function buildExam(exam,de,nonce){
+  const S=new Rng(de*7919+(exam==="vact"?101:707));const R=new Rng(nonce);
+  if(exam==="vact"){
+    return [
+      ...fillSec(S,R,TV,30,"Tiếng Việt"),
+      ...fillSec(S,R,TA,30,"Tiếng Anh"),
+      ...fillSec(S,R,MATH,30,"Toán học"),
+      ...fillSec(S,R,LOGIC,6,"Tư duy khoa học","Logic"),
+      ...fillSec(S,R,DATA,6,"Tư duy khoa học","Phân tích số liệu"),
+      ...fillSec(S,R,SCI,18,"Tư duy khoa học","Suy luận khoa học")
+    ];
+  }
+  return [
+    ...fillSec(S,R,VDS,15,"Đúng/Sai"),
+    ...fillSec(S,R,VGH,5,"Ghép hợp"),
+    ...fillSec(S,R,VSA,5,"Trả lời ngắn")
+  ];
+}
+function parseNum(s){
+  if(s===undefined||s===null)return NaN;
+  s=String(s).trim().replace(/\s/g,"").replace(/−/g,"-").replace(/,/g,".");
+  if(s==="")return NaN;
+  if(/^-?\d+(\.\d+)?\/-?\d+(\.\d+)?$/.test(s)){const [a,b]=s.split("/").map(Number);return b===0?NaN:a/b;}
+  if(!/^-?\d*\.?\d+$/.test(s))return NaN;
+  return Number(s);
+}
+/* trả về {score,max,secs:{name:{s,m,c,n}},per:[{ok,pts,max}]} */
+function gradeExam(exam,qs,ans){
+  const secs={};const per=[];let score=0,max=0;
+  qs.forEach((q,i)=>{
+    const a=ans[i];let pts=0,mx=0,ok=false;
+    if(q.type==="mc"){mx=10;ok=a===q.ans;pts=ok?10:0;}
+    else if(q.type==="ds"){mx=6;let c=0;q.items.forEach((it,j)=>{if(a&&a[j]!==undefined&&a[j]!==null&&a[j]===it.v)c++;});pts=c*1.5;ok=c===4;}
+    else if(q.type==="gh"){mx=6;let c=0;q.key.forEach((k,j)=>{if(a&&a[j]===k)c++;});pts=c*1.5;ok=c===4;}
+    else if(q.type==="sa"){mx=6;const v=parseNum(a);ok=isFinite(v)&&Math.abs(v-q.ans)<=Math.max(q.tol,1e-9);pts=ok?6:0;}
+    const s=secs[q.sec]||(secs[q.sec]={s:0,m:0,c:0,n:0});s.s+=pts;s.m+=mx;s.n++;if(ok)s.c++;
+    score+=pts;max+=mx;per.push({ok,pts,max:mx});
+  });
+  return {score:Math.round(score*10)/10,max,secs,per};
+}
+/* ================= ỨNG DỤNG ONLINE (Apps Script) ================= */
+const API_URL=""; /* Chỉ cần khi chạy bản GitHub: dán URL web app dạng https://script.google.com/macros/s/…/exec */
+const K={tok:"lktdg_on_token",prog:"lktdg_on_prog_",pend:"lktdg_on_pending"};
+const ls={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d;}catch(e){return d;}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}},del(k){try{localStorage.removeItem(k);}catch(e){}}};
+const esc=s=>String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const $=s=>document.querySelector(s);
+const app=()=>$("#app");
+let ME=null,TOKEN=ls.get(K.tok,""),EX=null,TIMER=null,ADMIN_DEF=false;
+const inGAS=()=>typeof google!=="undefined"&&google.script&&google.script.run;
+function api(action,data){
+  const d=Object.assign({action,token:TOKEN},data||{});
+  if(inGAS())return new Promise((res)=>google.script.run.withSuccessHandler(r=>res(r||{ok:false,err:"Máy chủ không phản hồi."})).withFailureHandler(e=>res({ok:false,err:String(e&&e.message||e)})).apiCall(d));
+  if(!API_URL)return Promise.resolve({ok:false,err:"Chưa cấu hình API_URL (dán URL web app Apps Script vào đầu tệp)."});
+  return fetch(API_URL,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(d)}).then(r=>r.json()).catch(e=>({ok:false,err:"Không kết nối được máy chủ. Kiểm tra mạng."}));
+}
+function busy(on,text){let b=$("#busy");if(on){if(!b){b=document.createElement("div");b.id="busy";b.className="modal";b.innerHTML=`<div class="box" style="max-width:320px;text-align:center"><b id="bt"></b></div>`;document.body.appendChild(b);}b.querySelector("#bt").textContent=text||"Đang kết nối máy chủ…";}else if(b)b.remove();}
+/* ================= ĐĂNG NHẬP ================= */
+function viewLogin(msg){
+  const bubbles=[...Array(10)].map((_,i)=>`<div class="srow"><b>${i+1}</b>${"ABCD".split("").map((c,j)=>`<span class="bub${(i*7+3)%4===j?" f":""}">${c}</span>`).join("")}</div>`).join("");
+  app().innerHTML=`<div class="login"><div class="l1">
+   <h1>LUYỆN TẬP ĐGNL</h1>
+   <p class="lead">30 đề V-ACT (ĐHQG-HCM) và 30 đề V-SAT Toán, bám cấu trúc đề năm 2026. Mỗi lần mở đề, số liệu được sinh lại. Nộp bài là có điểm, lời giải, và kết quả được lưu về máy chủ của thầy/cô.</p>
+   <form id="f">
+     <label class="l" for="u">Tên đăng nhập</label><input class="in" id="u" autocomplete="username" required>
+     <label class="l" for="p">Mật khẩu</label><input class="in" id="p" type="password" autocomplete="current-password" required>
+     <div style="margin-top:16px"><button class="btn red" type="submit" id="lb">Vào phòng thi</button></div>
+     <div class="msg ${msg?"e":""}" id="m">${esc(msg||"")}</div></form>
+   <p class="msg" style="color:var(--mute);margin-top:28px">Chưa có tài khoản? Liên hệ quản trị viên để được cấp.</p>
+  </div><div class="sheet" aria-hidden="true"><div class="sheetgrid">${bubbles}</div></div></div>`;
+  $("#f").onsubmit=async e=>{e.preventDefault();const m=$("#m");$("#lb").disabled=true;m.className="msg";m.textContent="Đang kiểm tra…";
+    const r=await api("login",{u:$("#u").value.trim(),p:$("#p").value});$("#lb").disabled=false;
+    if(!r.ok){m.className="msg e";m.textContent=r.err;return;}
+    TOKEN=r.token;ls.set(K.tok,TOKEN);ME=r.user;ADMIN_DEF=!!r.adminDefault;flushPending();ME.admin?viewAdmin():viewHome();};
+}
+function topbar(extra){return `<div class="top"><span class="brand"> LUYỆN TẬP ĐGNL</span><span class="sp"></span>${extra||""}<span class="who">${esc(ME.n||ME.u)}</span><button class="btn ghost sm" id="out">Đăng xuất</button></div>`;}
+function bindOut(){const o=$("#out");if(o)o.onclick=()=>{api("logout");ls.del(K.tok);TOKEN="";ME=null;clearInterval(TIMER);viewLogin();};}
+/* gửi lại các kết quả chưa lưu được (mất mạng lúc nộp) */
+async function flushPending(){const p=ls.get(K.pend,[]);if(!p.length)return;const keep=[];for(const x of p){if(x.u!==ME.u){keep.push(x);continue;}const r=await api("submit",x);if(!r.ok)keep.push(x);}ls.set(K.pend,keep);}
+/* ================= TRANG CHỌN ĐỀ ================= */
+let CUR_EXAM="vact";
+async function viewHome(){
+  clearInterval(TIMER);
+  const allowed=ME.r||["vact","vsat"];if(!allowed.includes(CUR_EXAM))CUR_EXAM=allowed[0];
+  app().innerHTML=topbar(ME.admin?`<button class="btn ghost sm" id="adm">Quản trị</button>`:"")+`<div class="wrap"><p>Đang tải kết quả…</p></div>`;bindOut();
+  const r=await api("myResults");if(!r.ok&&/hết hạn/.test(r.err||""))return viewLogin(r.err);
+  const all=r.ok?r.list:[];const pend=ls.get(K.pend,[]).filter(x=>x.u===ME.u);
+  const prog=ls.get(K.prog+ME.u,null);
+  const res=all.filter(x=>x.exam===CUR_EXAM);const best={},cnt={};res.forEach(x=>{best[x.de]=Math.max(best[x.de]||0,x.score);cnt[x.de]=(cnt[x.de]||0)+1;});
+  const E=EXAMS[CUR_EXAM];
+  app().innerHTML=topbar(ME.admin?`<button class="btn ghost sm" id="adm">Quản trị</button>`:"")+`<div class="wrap">
+   ${!r.ok?`<div class="panel" style="border-color:var(--form)">${esc(r.err)}</div>`:""}
+   ${pend.length?`<div class="panel" style="border-color:var(--form)">Có ${pend.length} kết quả chưa gửi được lên máy chủ. <button class="btn sm" id="rs">Gửi lại</button></div>`:""}
+   ${prog?`<div class="panel" style="border-color:var(--form)"><b>Bài làm dở:</b> ${EXAMS[prog.exam].name} – Đề ${String(prog.de).padStart(2,"0")}. <button class="btn red sm" id="resume">Làm tiếp</button> <button class="btn ghost sm" id="drop">Bỏ bài này</button></div>`:""}
+   <h2 style="font-size:1.6rem">Chọn kỳ thi và đề</h2>
+   <div class="seg">${allowed.map(k=>`<button data-e="${k}" class="${k===CUR_EXAM?"on":""}">${EXAMS[k].name}</button>`).join("")}</div>
+   <p class="einfo">${E.info}</p>
+   <div class="grid30">${[...Array(30)].map((_,i)=>{const d=i+1;return `<button class="de${best[d]!==undefined?" done":""}" data-d="${d}"><span class="n">${String(d).padStart(2,"0")}</span><span class="s">${best[d]!==undefined?`Cao nhất <span class="best">${nf(best[d])}</span>/${E.max} · ${cnt[d]} lần`:"Chưa làm"}</span></button>`;}).join("")}</div>
+   <div class="panel" style="margin-top:22px"><h3>Lịch sử làm bài</h3>${histTable(all.slice(-15).reverse())}</div></div>`;
+  bindOut();
+  if($("#adm"))$("#adm").onclick=viewAdmin;
+  if($("#rs"))$("#rs").onclick=async()=>{busy(true,"Đang gửi lại…");await flushPending();busy(false);viewHome();};
+  app().querySelectorAll(".seg button").forEach(b=>b.onclick=()=>{CUR_EXAM=b.dataset.e;viewHome();});
+  app().querySelectorAll(".de").forEach(b=>b.onclick=()=>confirmStart(CUR_EXAM,+b.dataset.d));
+  if($("#resume"))$("#resume").onclick=()=>startExam(prog);
+  if($("#drop"))$("#drop").onclick=()=>{ls.del(K.prog+ME.u);viewHome();};
+}
+function histTable(rs,withUser){
+  if(!rs.length)return `<p style="color:var(--mute)">Chưa có bài nào.</p>`;
+  return `<div class="tbl"><table><tr><th>Thời gian</th>${withUser?"<th>Tài khoản</th><th>Họ tên</th>":""}<th>Kỳ thi</th><th>Đề</th><th>Điểm</th><th>Phút</th></tr>${rs.map(r=>`<tr><td>${esc(r.date)}</td>${withUser?`<td>${esc(r.u)}</td><td>${esc(r.n)}</td>`:""}<td>${EXAMS[r.exam]?EXAMS[r.exam].name:esc(r.exam)}</td><td>${String(r.de).padStart(2,"0")}</td><td><b>${nf(r.score)}</b>/${r.max}</td><td>${r.minutes}</td></tr>`).join("")}</table></div>`;
+}
+function modal(html){const d=document.createElement("div");d.className="modal";d.innerHTML=`<div class="box" role="dialog" aria-modal="true">${html}</div>`;document.body.appendChild(d);d.onclick=e=>{if(e.target===d)d.remove();};return d;}
+function confirmStart(exam,de){
+  const E=EXAMS[exam];
+  const d=modal(`<h3>${E.name} – Đề ${String(de).padStart(2,"0")}</h3><p>${E.info}</p><p style="color:var(--graphite)">Đồng hồ đếm ngược ${E.time} phút, hết giờ bài tự nộp. Bài làm được lưu liên tục trên máy, tải lại trang vẫn làm tiếp được.</p>
+   <div class="nav"><button class="btn red" id="go">Bắt đầu làm bài</button><button class="btn ghost" id="cx">Để sau</button></div>`);
+  d.querySelector("#cx").onclick=()=>d.remove();
+  d.querySelector("#go").onclick=()=>{d.remove();const nonce=(Date.now()^Math.floor(Math.random()*1e9))>>>0;
+    startExam({exam,de,nonce,start:Date.now(),ans:{},fl:{},cur:0});};
+}
+/* ================= PHÒNG THI ================= */
+function saveProg(){ls.set(K.prog+ME.u,EX.p);}
+function startExam(p){
+  const qs=buildExam(p.exam,p.de,p.nonce);EX={p,qs};saveProg();
+  const E=EXAMS[p.exam];
+  app().innerHTML=topbar()+`<div class="wrap"><div class="exam">
+    <div><div class="qbox" id="qb"></div></div>
+    <aside class="side" id="side"><div class="timer" id="tm">--:--</div>
+     <div style="text-align:center;font-size:.85rem;color:var(--graphite)">${E.name} · Đề ${String(p.de).padStart(2,"0")}</div>
+     <div style="display:flex;gap:8px;justify-content:center;margin:10px 0"><button class="btn red sm" id="sub">Nộp bài</button><button class="btn ghost sm toggle-pal" id="tp">Bảng câu hỏi</button></div>
+     <div class="pal" id="pal"></div>
+     <div class="legend"><span class="bub f" style="width:12px;height:12px"></span> đã trả lời &nbsp; <span class="bub" style="width:12px;height:12px"></span> chưa trả lời &nbsp; chấm đỏ: đánh dấu xem lại</div>
+    </aside></div></div>`;
+  bindOut();
+  $("#sub").onclick=()=>{const left=qs.filter((q,i)=>!answered(i)).length;
+    const d=modal(`<h3>Nộp bài?</h3><p>${left?`Còn <b>${left}</b> câu chưa trả lời.`:"Bạn đã trả lời tất cả các câu."}</p><div class="nav"><button class="btn red" id="ok">Nộp bài</button><button class="btn ghost" id="no">Làm tiếp</button></div>`);
+    d.querySelector("#no").onclick=()=>d.remove();d.querySelector("#ok").onclick=()=>{d.remove();finish();};};
+  $("#tp").onclick=()=>$("#side").classList.toggle("closed");
+  if(window.innerWidth<900)$("#side").classList.add("closed");
+  renderPal();renderQ();
+  clearInterval(TIMER);const end=p.start+E.time*60000;
+  const tick=()=>{const ms=end-Date.now();if(ms<=0){clearInterval(TIMER);finish();return;}const m=Math.floor(ms/60000),s=Math.floor(ms%60000/1000);const t=$("#tm");if(t){t.textContent=String(m).padStart(2,"0")+":"+String(s).padStart(2,"0");t.classList.toggle("low",ms<5*60000);}};
+  tick();TIMER=setInterval(tick,1000);
+}
+function answered(i){const a=EX.p.ans[i];const q=EX.qs[i];if(a===undefined||a===null)return false;
+  if(q.type==="ds"||q.type==="gh")return Array.isArray(a)&&a.filter(x=>x!==null&&x!==undefined).length===4;
+  if(q.type==="sa")return String(a).trim()!=="";return true;}
+function renderPal(){
+  let h="",last="";
+  EX.qs.forEach((q,i)=>{const g=q.part?q.sec+" – "+q.part:q.sec;if(g!==last){if(last)h+="</div>";h+=`<h4>${g}</h4><div class="palg">`;last=g;}
+    h+=`<button class="pb${answered(i)?" a":""}${EX.p.cur===i?" cur":""}${EX.p.fl[i]?" fl":""}" data-i="${i}" aria-label="Câu ${i+1}">${i+1}</button>`;});
+  $("#pal").innerHTML=h+"</div>";
+  $("#pal").querySelectorAll(".pb").forEach(b=>b.onclick=()=>{EX.p.cur=+b.dataset.i;saveProg();renderPal();renderQ();if(window.innerWidth<900)$("#side").classList.add("closed");});
+}
+const L="ABCDEFGH";
+function renderQ(){
+  const i=EX.p.cur,q=EX.qs[i],a=EX.p.ans[i];
+  let body="";
+  if(q.type==="mc")body=`<div class="opts">${q.opts.map((o,j)=>`<button class="opt${a===j?" sel":""}" data-j="${j}"><span class="bub">${L[j]}</span><span>${o}</span></button>`).join("")}</div>`;
+  else if(q.type==="ds")body=q.items.map((it,j)=>`<div class="dsr"><div><b>${"abcd"[j]})</b> ${it.t}</div><div class="tfb" data-j="${j}"><button data-v="1" class="${a&&a[j]===true?"on":""}">Đúng</button><button data-v="0" class="${a&&a[j]===false?"on":""}">Sai</button></div></div>`).join("");
+  else if(q.type==="gh")body=`<div class="ghopt">${q.right.map((r,k)=>`<div><b>${L[k]}.</b> ${r}</div>`).join("")}</div>`+q.left.map((l,j)=>`<div class="ghr"><div><b>${j+1}.</b> ${l}</div><select class="in" data-j="${j}"><option value="">– chọn –</option>${q.right.map((r,k)=>`<option value="${k}"${a&&a[j]===k?" selected":""}>${L[k]}</option>`).join("")}</select></div>`).join("");
+  else body=`<label class="l" for="sa">Nhập đáp số (số nguyên, số thập phân dùng dấu phẩy, hoặc phân số a/b)</label><input class="in" id="sa" style="max-width:240px" inputmode="decimal" value="${esc(a||"")}">`;
+  $("#qb").innerHTML=`<div class="qhead"><span class="qno">Câu ${i+1}</span><span class="qsec">${q.sec}${q.part?" · "+q.part:""}</span></div>
+   <div class="stem">${q.stem}</div>${body}
+   <div class="nav"><button class="btn ghost" id="pv" ${i===0?"disabled":""}>Câu trước</button><button class="btn" id="nx" ${i===EX.qs.length-1?"disabled":""}>Câu sau</button><button class="btn ghost" id="fg">${EX.p.fl[i]?"Bỏ đánh dấu":"Đánh dấu xem lại"}</button></div>`;
+  const set=v=>{EX.p.ans[i]=v;saveProg();renderPal();};
+  $("#qb").querySelectorAll(".opt").forEach(b=>b.onclick=()=>{set(+b.dataset.j);renderQ();});
+  $("#qb").querySelectorAll(".tfb button").forEach(b=>b.onclick=()=>{const j=+b.parentNode.dataset.j;const arr=Array.isArray(EX.p.ans[i])?EX.p.ans[i].slice():[null,null,null,null];arr[j]=b.dataset.v==="1";set(arr);renderQ();});
+  $("#qb").querySelectorAll("select").forEach(s=>s.onchange=()=>{const j=+s.dataset.j;const arr=Array.isArray(EX.p.ans[i])?EX.p.ans[i].slice():[null,null,null,null];arr[j]=s.value===""?null:+s.value;set(arr);});
+  const sa=$("#sa");if(sa)sa.oninput=()=>set(sa.value);
+  $("#pv").onclick=()=>{EX.p.cur--;saveProg();renderPal();renderQ();};
+  $("#nx").onclick=()=>{EX.p.cur++;saveProg();renderPal();renderQ();};
+  $("#fg").onclick=()=>{EX.p.fl[i]=!EX.p.fl[i];saveProg();renderPal();renderQ();};
+  window.scrollTo({top:0});
+}
+async function finish(){
+  clearInterval(TIMER);
+  const p=EX.p,qs=EX.qs;const ans=qs.map((_,i)=>p.ans[i]);
+  const g=gradeExam(p.exam,qs,ans);
+  const used=Math.min(EXAMS[p.exam].time*60,Math.round((Date.now()-p.start)/1000));
+  const rec={u:ME.u,exam:p.exam,de:p.de,nonce:p.nonce,score:g.score,max:g.max,used,ans};
+  ls.del(K.prog+ME.u);
+  busy(true,"Đang lưu kết quả lên máy chủ…");
+  const payload={u:ME.u,exam:p.exam,de:p.de,score:g.score,minutes:Math.round(used/60),secs:Object.fromEntries(Object.entries(g.secs).map(([k,s])=>[k,s.s+"/"+s.m])),nonce:p.nonce};
+  const r=await api("submit",payload);busy(false);
+  if(!r.ok){const pd=ls.get(K.pend,[]);pd.push(payload);ls.set(K.pend,pd);}
+  viewResult(rec,qs,g);
+  if(!r.ok)modal(`<h3>Chưa lưu được lên máy chủ</h3><p>${esc(r.err)}</p><p>Kết quả đã được giữ trên máy này và sẽ tự gửi lại ở lần đăng nhập sau.</p>`);
+}
+/* ================= KẾT QUẢ ================= */
+function ansText(q,a){
+  if(q.type==="mc")return a===undefined||a===null?"(bỏ trống)":L[a]+". "+q.opts[a];
+  if(q.type==="ds")return q.items.map((it,j)=>"abcd"[j]+") "+(a&&a[j]!=null?(a[j]?"Đ":"S"):"–")).join("  ");
+  if(q.type==="gh")return q.left.map((_,j)=>(j+1)+"–"+(a&&a[j]!=null?L[a[j]]:"?")).join("  ");
+  return a&&String(a).trim()?esc(a):"(bỏ trống)";
+}
+function keyText(q){
+  if(q.type==="mc")return L[q.ans]+". "+q.opts[q.ans];
+  if(q.type==="ds")return q.items.map((it,j)=>"abcd"[j]+") "+(it.v?"Đúng":"Sai")).join("  ");
+  if(q.type==="gh")return q.key.map((k,j)=>(j+1)+"–"+L[k]).join("  ");
+  return nf(q.ans,4);
+}
+function viewResult(rec,qs,g){
+  const E=EXAMS[rec.exam];let filter="all";
+  const secHtml=Object.entries(g.secs).map(([k,s])=>`<div style="display:flex;justify-content:space-between;font-size:.92rem"><span>${k}</span><b>${nf(s.s)}/${s.m}</b></div><div class="bar"><i style="width:${s.m?s.s/s.m*100:0}%"></i></div>`).join("");
+  const conv=rec.exam==="vsat"?`<p style="color:var(--graphite);font-size:.9rem">Quy đổi tham khảo thang 10 (tuyến tính): <b>${nf(rec.score/15,2)}</b>. Các trường quy đổi chính thức theo bảng bách phân vị riêng.</p>`
+   :`<p style="color:var(--graphite);font-size:.9rem">Điểm tính 10 điểm/câu đúng. Kỳ thi thật dùng trọng số theo độ khó (IRT) nên điểm thật có thể lệch đôi chút.</p>`;
+  const draw=()=>{
+    const list=qs.map((q,i)=>({q,i,ok:g.per[i].ok,pts:g.per[i].pts,mx:g.per[i].max})).filter(x=>filter==="all"||(filter==="no"?!x.ok:x.ok));
+    $("#rvl").innerHTML=list.map(({q,i,ok,pts,mx})=>`<div class="rv ${ok?"ok":"no"}"><div class="qhead" style="margin-bottom:8px"><span class="qno" style="font-size:1rem">Câu ${i+1}</span><span><span class="tag ${ok?"ok":""}">${nf(pts)}/${mx} điểm</span> <span class="qsec">${q.sec}</span></span></div>
+      <div class="stem" style="font-size:1rem">${q.stem}</div>
+      ${q.type==="ds"?q.items.map((it,j)=>`<div style="font-family:var(--fs)">${"abcd"[j]}) ${it.t}</div>`).join(""):""}
+      ${q.type==="gh"?`<div class="ghopt">${q.right.map((r,k)=>`<div><b>${L[k]}.</b> ${r}</div>`).join("")}</div>`+q.left.map((l,j)=>`<div style="font-family:var(--fs)">${j+1}. ${l}</div>`).join(""):""}
+      <div class="k">Bạn chọn: <b>${ansText(q,rec.ans[i])}</b></div><div class="k">Đáp án: <b style="color:var(--ok)">${keyText(q)}</b></div>
+      ${q.expl?`<div class="expl"><b>Lời giải.</b> ${q.expl}</div>`:""}</div>`).join("")||`<p>Không có câu nào trong mục này.</p>`;
+  };
+  app().innerHTML=topbar()+`<div class="wrap"><div class="res"><div class="score">
+    <div style="color:var(--graphite)">${E.name} · Đề ${String(rec.de).padStart(2,"0")}</div>
+    <div class="big">${nf(rec.score)}<small> / ${E.max}</small></div>
+    <p style="margin:.4em 0 1em">Đúng hoàn toàn ${g.per.filter(x=>x.ok).length}/${qs.length} câu · ${Math.round(rec.used/60)} phút</p>
+    ${secHtml}${conv}
+    <div class="nav"><button class="btn red" id="again">Làm lại đề này (số liệu mới)</button><button class="btn ghost" id="home">Về trang chọn đề</button><button class="btn ghost" id="pr">In kết quả</button></div>
+   </div><div><h2 style="font-size:1.4rem">Xem lại bài làm</h2><div class="filt"><button class="btn sm" data-f="all">Tất cả</button><button class="btn ghost sm" data-f="no">Câu sai / chưa trọn điểm</button><button class="btn ghost sm" data-f="ok">Câu đúng</button></div><div id="rvl"></div></div></div></div>`;
+  bindOut();
+  app().querySelectorAll(".filt button").forEach(b=>b.onclick=()=>{filter=b.dataset.f;app().querySelectorAll(".filt button").forEach(x=>x.className="btn sm"+(x===b?"":" ghost"));draw();});
+  $("#again").onclick=()=>confirmStart(rec.exam,rec.de);
+  $("#home").onclick=viewHome;$("#pr").onclick=()=>window.print();
+  draw();window.scrollTo({top:0});
+}
+/* ================= QUẢN TRỊ ================= */
+function download(name,text,type){const b=new Blob([text],{type:type||"text/plain"});const a=document.createElement("a");a.href=URL.createObjectURL(b);a.download=name;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},500);}
+async function viewAdmin(){
+  clearInterval(TIMER);
+  app().innerHTML=topbar(`<button class="btn ghost sm" id="try">Vào thi thử</button>`)+`<div class="wrap"><p>Đang tải dữ liệu từ máy chủ…</p></div>`;bindOut();
+  const [U,Rs]=await Promise.all([api("users"),api("results",{limit:500})]);
+  if(!U.ok){if(/đăng nhập|hết hạn/.test(U.err||""))return viewLogin(U.err);}
+  const rows=U.ok?U.list:[],res=Rs.ok?Rs.list:[];
+  app().innerHTML=topbar(`<button class="btn ghost sm" id="try">Vào thi thử</button>`)+`<div class="wrap">
+   <h2 style="font-size:1.6rem">Quản trị – bản online</h2>
+   ${ADMIN_DEF?`<div class="panel" style="border-color:var(--form)"><b>Đang dùng mật khẩu quản trị mặc định.</b> Đổi ngay ở cuối trang.</div>`:""}
+   ${!U.ok?`<div class="panel" style="border-color:var(--form)">${esc(U.err)}</div>`:""}
+   <div class="panel"><h3>Cấp tài khoản</h3>
+    <div class="row2"><div><label class="l">Tên đăng nhập</label><input class="in" id="nu" placeholder="vd: hs12a01"></div>
+     <div><label class="l">Mật khẩu</label><input class="in" id="np"></div>
+     <div><label class="l">Họ và tên</label><input class="in" id="nn"></div>
+     <div><label class="l">Hạn sử dụng (để trống = không giới hạn)</label><input class="in" id="ne" type="date"></div></div>
+    <div class="chk"><label><input type="checkbox" id="r1" checked> V-ACT</label><label><input type="checkbox" id="r2" checked> V-SAT Toán</label></div>
+    <div class="nav"><button class="btn red" id="add">Tạo tài khoản</button></div>
+    <details style="margin-top:12px"><summary>Tạo hàng loạt (dán từ Excel)</summary><p style="font-size:.9rem;color:var(--graphite)">Mỗi dòng: tên đăng nhập, mật khẩu, họ tên — ngăn cách bằng dấu phẩy hoặc phím Tab (chép thẳng 3 cột từ Excel). Quyền và hạn lấy theo ô phía trên.</p><textarea class="in" id="bulk" placeholder="hs01,123456,Nguyễn Văn A"></textarea><div class="nav"><button class="btn" id="badd">Tạo các tài khoản</button></div></details>
+    <div class="msg" id="am"></div></div>
+   <div class="panel"><h3>Danh sách tài khoản (${rows.length})</h3>${rows.length?`<div class="tbl"><table><tr><th>Tên đăng nhập</th><th>Họ tên</th><th>Quyền</th><th>Hạn</th><th>Trạng thái</th><th></th></tr>
+    ${rows.map(v=>`<tr><td><b>${esc(v.u)}</b></td><td>${esc(v.n)}</td><td>${(v.r||[]).map(x=>EXAMS[x]?EXAMS[x].name:x).join(", ")}</td><td>${esc(v.e||"–")}</td><td>${v.lock?"Đang khóa":"Hoạt động"}</td>
+    <td style="white-space:nowrap"><button class="btn ghost sm" data-a="pw" data-u="${esc(v.u)}">Đổi mật khẩu</button> <button class="btn ghost sm" data-a="lock" data-u="${esc(v.u)}">${v.lock?"Mở khóa":"Khóa"}</button> <button class="btn ghost sm" data-a="del" data-u="${esc(v.u)}">Xóa</button></td></tr>`).join("")}</table></div>`:`<p style="color:var(--mute)">Chưa có tài khoản nào.</p>`}</div>
+   <div class="panel"><h3>Kết quả thi của mọi máy (${res.length} bài gần nhất)</h3>
+    <div class="nav" style="margin:0 0 10px"><button class="btn ghost sm" id="sheet">Mở Google Sheet kết quả</button><button class="btn ghost sm" id="csv">Tải CSV</button></div>
+    ${histTable(res.slice().reverse().slice(0,300),true)}</div>
+   <div class="panel"><h3>Đổi mật khẩu quản trị</h3><div class="row2"><div><label class="l">Mật khẩu mới</label><input class="in" id="ap" type="password"></div><div><label class="l">Nhập lại</label><input class="in" id="ap2" type="password"></div></div><div class="nav"><button class="btn" id="apb">Lưu mật khẩu</button></div><div class="msg" id="apm"></div></div>
+  </div>`;
+  bindOut();
+  $("#try").onclick=()=>viewHome();
+  const roles=()=>[...($("#r1").checked?["vact"]:[]),...($("#r2").checked?["vsat"]:[])];
+  const sendAdd=async list=>{busy(true,"Đang tạo tài khoản…");const r=await api("addUsers",{list,roles:roles(),exp:$("#ne").value||""});busy(false);
+    if(!r.ok){$("#am").className="msg e";$("#am").textContent=r.err;return;}
+    if(r.errors&&r.errors.length)alert("Đã tạo "+r.added+" tài khoản.\nKhông tạo được:\n"+r.errors.join("\n"));viewAdmin();};
+  $("#add").onclick=()=>sendAdd([{u:$("#nu").value,p:$("#np").value,n:$("#nn").value}]);
+  $("#badd").onclick=()=>{const list=$("#bulk").value.split(/\n/).map(x=>x.trim()).filter(Boolean).map(ln=>{const [u,p,...n]=ln.split(/\t|,/);return {u:(u||"").trim(),p:(p||"").trim(),n:n.join(" ").trim()};});if(list.length)sendAdd(list);};
+  app().querySelectorAll("[data-a]").forEach(b=>b.onclick=async()=>{const u=b.dataset.u,a=b.dataset.a;let r;
+    if(a==="pw"){const p=prompt("Mật khẩu mới cho "+u+" (tối thiểu 4 ký tự):");if(!p)return;busy(true);r=await api("setPw",{u,p});}
+    if(a==="lock"){busy(true);r=await api("lock",{u});}
+    if(a==="del"){if(!confirm("Xóa tài khoản "+u+"? Kết quả thi cũ vẫn giữ trong Sheet."))return;busy(true);r=await api("del",{u});}
+    busy(false);if(r&&!r.ok)return alert(r.err);if(a==="pw")alert("Đã đổi mật khẩu cho "+u+".");viewAdmin();});
+  $("#sheet").onclick=async()=>{const r=await api("sheetUrl");if(r.ok)window.open(r.url,"_blank");else alert(r.err);};
+  $("#csv").onclick=()=>{const head="Thời gian,Tài khoản,Họ tên,Kỳ thi,Đề,Điểm,Tối đa,Phút";const lines=res.map(r=>[r.date,r.u,r.n,EXAMS[r.exam]?EXAMS[r.exam].name:r.exam,r.de,r.score,r.max,r.minutes].map(x=>'"'+String(x).replace(/"/g,'""')+'"').join(","));download("ket-qua-thi.csv","\ufeff"+head+"\n"+lines.join("\n"),"text/csv");};
+  $("#apb").onclick=async()=>{const p=$("#ap").value,p2=$("#ap2").value,m=$("#apm");if(p!==p2){m.className="msg e";m.textContent="Hai lần nhập không khớp.";return;}const r=await api("adminPw",{p});m.className="msg "+(r.ok?"o":"e");m.textContent=r.ok?"Đã lưu mật khẩu quản trị mới.":r.err;if(r.ok)ADMIN_DEF=false;};
+}
+/* ================= KHỞI ĐỘNG ================= */
+(async function(){
+  if(!TOKEN)return viewLogin();
+  app().innerHTML=`<div class="wrap"><p>Đang kết nối máy chủ…</p></div>`;
+  const r=await api("me");
+  if(!r.ok){ls.del(K.tok);TOKEN="";return viewLogin();}
+  ME=r.user;ADMIN_DEF=!!r.adminDefault;flushPending();ME.admin?viewAdmin():viewHome();
+})();
+</script>
+<!-- LUYỆN TẬP ĐGNL (online) · Lương Khánh Tường · THPT Bình Thạnh Đông, An Giang · 0916780807 -->
+</body></html>

@@ -787,7 +787,7 @@ function gradeExam(exam,qs,ans){
   return {score:Math.round(score*10)/10,max,secs,per};
 }
 /* ================= ỨNG DỤNG ONLINE (Apps Script) ================= */
-const API_URL="https://script.google.com/macros/s/AKfycbym4gJzibxRS7fLP_oEL-b8X7Vj2FvcNVBCW0X1RoFEXUV0oxoG91n1KDZEbN51pzYcKA/exec"; /* Chỉ cần khi chạy bản GitHub: dán URL web app dạng https://script.google.com/macros/s/…/exec */
+const API_URL="https://script.google.com/macros/s/AKfycbyPV8KpBjQGYvo8mmoBV8ipZ2lX9Mup59TAHPBdZMgancNtCScuhjL7-ysjn7NXIaU9fg/exec"; /* Chỉ cần khi chạy bản GitHub: dán URL web app dạng https://script.google.com/macros/s/…/exec */
 const K={tok:"lktdg_on_token",prog:"lktdg_on_prog_",pend:"lktdg_on_pending"};
 const ls={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d;}catch(e){return d;}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}},del(k){try{localStorage.removeItem(k);}catch(e){}}};
 const esc=s=>String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
